@@ -272,8 +272,9 @@ a:hover {
 @media (max-width: 767.98px) {
 	/* 首頁跑馬燈 包覆 */
 	.slider .wrapper {
+		width: 100%;
 		background-size: auto 70vh;
-		background-position: right 10px bottom;
+		background-position: right -40px bottom;
 	}
 }
 
@@ -376,7 +377,7 @@ a:hover {
 	margin-right: 0px;
 }
 
-.card-item > img {
+.card-item img {
 	object-fit: cover;
 	width: 280px;
 	height: 280px;
@@ -397,18 +398,11 @@ a:hover {
 
 .story-image {
 	position: relative;
-	width: 40%;
 	float: left;
-}
-
-.story-image img {
-	width: 100%;
-	height: 350px;
-	object-fit: cover;
+	height: 100%;
 }
 
 .story-description {
-	width: calc(60% - 60px);
 	height: 100%;
 	float: left;
 	display: flex;
@@ -417,10 +411,116 @@ a:hover {
 	padding-left: 60px;
 }
 
+.story-description > div {
+	width: 100%;
+}
+
+@media (min-width: 1368px){
+	.story-image {
+		width: 40%;
+	}
+
+	.story-description {
+		width: calc(60% - 60px);
+	}
+
+	.story-image > div {
+		display: none;
+	}
+}
+
+@media (max-width: 1367.98px) and (min-width: 768px) {
+	.story-image {
+		width: 55%;
+	}
+
+	.story-description {
+		width: calc(45% - 60px);
+	}
+
+	.story-image > div {
+		display: none;
+	}
+}
+
+@media (max-width: 767.98px) {
+	.story-image {
+		width: 100%;
+	}
+
+	.story-description {
+		display: none;
+	}
+
+	.story-image > div {
+		position: absolute;
+		top: 0px;
+		left: 0px;
+		width: 100%;
+		height: 100%;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+	}
+}
+
+.story-image img {
+	width: 100%;
+	height: 350px;
+	object-fit: cover;
+	object-position: left bottom;
+}
+
+
 a.link-border {
 	text-decoration: none;
 	font-weight: bold;
 	padding-bottom: 0.5rem;
 	border-bottom: 4.5px solid #000;
 	margin-top: 60px;
+}
+
+.collections-area {
+	width: 100%;
+	height: 400px;
+}
+
+.collections {
+	position: relative;
+}
+
+.collections-area > .collections {
+	position: relative;
+	height: 100%;
+	width: 50%;
+	margin-right: 30px;
+	float: left;
+}
+
+.collections img {
+	object-fit: cover;
+	object-position: center center;
+	width: 100%;
+	height: 100%;
+}
+
+.collections span {
+	position: absolute;
+	left: 35px;
+	bottom: 35px;
+	font-weight: bold;
+}
+
+.vertical-wrapper {
+	height: 100%;
+	width: calc(50% - 30px);
+	float: left;
+}
+
+.vertical-wrapper > .collections {
+	height: calc(50% - 15px);
+}
+
+.vertical-wrapper > .collections:first-child {
+	margin-bottom: 30px;
 }
