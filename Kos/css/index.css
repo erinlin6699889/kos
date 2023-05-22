@@ -12,22 +12,26 @@ body {
 	margin: 0;
 }
 
+/* 超連結 */
 a {
 	color: var(--text-color);
+	text-decoration: none;
 	transition: .2s;
 }
 
+/* 超連結:hover */
 a:hover {
 	color: var(--text-color-hover);
 }
 
+/* 導覽列顏色 (scrollTop > 60) */
 .topbar-colorful {
 	background-color: #d2ccc6 !important;
 	box-shadow: 0px 0px 10px 2px rgba(0, 0, 0, 0.2);
 }
 
-/* XXL XL LG */
-@media (min-width: 1660px) {
+/* XXL */
+@media (min-width: 1400px) {
 	.wrapper {
 		width: 75%;
 		position: relative;
@@ -42,8 +46,8 @@ a:hover {
 	}
 }
 
-
-@media (max-width: 1659.98px) and (min-width: 992px) {
+/* XXL XL LG */
+@media (max-width: 1399.98px) and (min-width: 992px) {
 	.wrapper {
 		width: 85%;
 		position: relative;
@@ -120,7 +124,7 @@ a:hover {
 }
 
 /* XXL */
-@media (min-width: 1660px) {
+@media (min-width: 1400px) {
 	/* 選單寬度 */
 	.topbar ul {
 		width: 25%;
@@ -133,7 +137,7 @@ a:hover {
 }
 
 /* XL LG */
-@media (max-width: 1659.98px) and (min-width: 992px) {
+@media (max-width: 1399.98px) and (min-width: 992px) {
 	/* 選單寬度 */
 	.topbar ul {
 		width: 33%;
@@ -471,7 +475,6 @@ a:hover {
 	object-position: left bottom;
 }
 
-
 a.link-border {
 	text-decoration: none;
 	font-weight: bold;
@@ -480,47 +483,150 @@ a.link-border {
 	margin-top: 60px;
 }
 
-.collections-area {
-	width: 100%;
-	height: 400px;
-}
-
 .collections {
 	position: relative;
 }
 
-.collections-area > .collections {
-	position: relative;
-	height: 100%;
-	width: 50%;
-	margin-right: 30px;
+@media (min-width: 576px){
+
+	.collections-scroll {
+		width: 100%;
+		height: 400px;
+	}
+
+	.collections-area {
+		height: 100%;
+		width: 100%;
+	}
+
+	.collections-scroll > .collections-area > .collections {
+		position: relative;
+		height: 100%;
+		width: 50%;
+		margin-right: 30px;
+		float: left;
+	}
+	
+	.collections img {
+		object-fit: cover;
+		object-position: center center;
+		width: 100%;
+		height: 100%;
+	}
+	
+	.collections span {
+		position: absolute;
+		left: 35px;
+		bottom: 35px;
+		font-weight: bold;
+	}
+	
+	.vertical-wrapper {
+		height: 100%;
+		width: calc(50% - 30px);
+		float: left;
+	}
+	
+	.vertical-wrapper > .collections {
+		height: calc(50% - 15px);
+	}
+	
+	.vertical-wrapper > .collections:first-child {
+		margin-bottom: 30px;
+	}
+}
+
+@media (max-width: 575.98px){
+
+	.collections-scroll {
+		width: 100%;
+		height: 400px;
+		overflow-x: auto;
+		overflow-y: hidden;
+	}
+
+	.collections-scroll::-webkit-scrollbar {
+		width: 5px;
+		height: 10px;
+		background-color: #aaa;
+	}
+	
+	.collections-scroll::-webkit-scrollbar-thumb {
+		background: #000;
+	}
+
+	.collections-area {
+		height: 400px;
+		width: 1170px;
+	}
+
+	.collections-scroll > .collections-area > .collections {
+		position: relative;
+		height: 100%;
+		width: 350px;
+		margin-right: 30px;
+		float: left;
+	}
+	
+	.collections img {
+		object-fit: cover;
+		object-position: center center;
+		width: 100%;
+		height: 330px;
+	}
+	
+	.collections span {
+		position: absolute;
+		left: 0px;
+		bottom: 28px;
+		font-weight: bold;
+	}
+	
+	.vertical-wrapper {
+		height: 100%;
+		width: auto;
+		float: left;
+	}
+	
+	.vertical-wrapper > .collections {
+		height: 100%;
+		width: 380px;
+		float: left;
+	}
+	
+	.vertical-wrapper > .collections:first-child {
+		margin-bottom: 0px;
+		margin-right: 30px;
+	}
+}
+
+.footer {
+	padding: 0rem 0px 3rem 0px;
+	display: flex;
+	justify-content: center;
+}
+
+.footer hr {
+	border-top: 4.5px solid #000;
+	margin-bottom: 3rem;
+}
+
+.footer ul {
+	list-style: none;
+	padding-left: 0px !important;
+	width: auto;
 	float: left;
+	margin-right: 200px;
 }
 
-.collections img {
-	object-fit: cover;
-	object-position: center center;
-	width: 100%;
-	height: 100%;
+.footer ul:last-child {
+	margin-right: 0px;
 }
 
-.collections span {
-	position: absolute;
-	left: 35px;
-	bottom: 35px;
-	font-weight: bold;
+.footer ul li:first-child h3 {
+	margin-top: 0px;
 }
 
-.vertical-wrapper {
-	height: 100%;
-	width: calc(50% - 30px);
-	float: left;
-}
-
-.vertical-wrapper > .collections {
-	height: calc(50% - 15px);
-}
-
-.vertical-wrapper > .collections:first-child {
-	margin-bottom: 30px;
+.footer ul li {
+	margin: 10px 0px;
 }
