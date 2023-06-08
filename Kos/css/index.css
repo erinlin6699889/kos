@@ -1,12 +1,14 @@
 :root {
 	--text-color: #262626;
 	--text-color-hover: #c05a5a;
+	--webkit-scrollbar-color: #d1d0d0;
+	--webkit-scrollbar-thumb-color: #000;
 }
 
 /* BODY  */
 body {
 	background-color: #f2f2f2;
-	font-family: Microsoft JhengHei;
+	font-family: "Noto Sans CJK TC", "Microsoft JhengHei", "PingFang", "STHeiti", sans-serif, serif;
 	font-size: 1.3rem;
 	font-weight: bold;
 	margin: 0;
@@ -26,6 +28,7 @@ a:hover {
 
 /* 導覽列顏色 (scrollTop > 60) */
 .topbar-colorful {
+	/* 因為是用JS加上去的Class，權重在同層級所以還是選擇加上!important */
 	background-color: #d2ccc6 !important;
 	box-shadow: 0px 0px 10px 2px rgba(0, 0, 0, 0.2);
 }
@@ -134,45 +137,6 @@ a:hover {
 	justify-content: center;
 }
 
-/* XXL */
-@media (min-width: 1400px) {
-	/* 選單寬度 */
-	.topbar ul {
-		width: 25%;
-	}
-
-	/* LOGO寬度 */
-	.topbar .topbar-logo {
-		width: 44%;
-	}
-}
-
-/* XL LG */
-@media (max-width: 1399.98px) and (min-width: 992px) {
-	/* 選單寬度 */
-	.topbar ul {
-		width: 33%;
-	}
-
-	/* LOGO寬度 */
-	.topbar .topbar-logo {
-		width: 30%;
-	}
-}
-
-/* MD以下 */
-@media (max-width: 991.98px){
-	/* 選單寬度 */
-	.topbar ul {
-		display: none !important;
-	}
-
-	/* LOGO寬度 */
-	.topbar .topbar-logo {
-		width: 100%;
-	}
-}
-
 /* 導覽列選單 */
 .topbar ul {
 	list-style: none;
@@ -227,6 +191,47 @@ a:hover {
 /* 網站LOGO */
 .topbar .topbar-logo img {
 	height: 20px;
+}
+
+
+
+/* XXL */
+@media (min-width: 1400px) {
+	/* 選單寬度 */
+	.topbar ul {
+		width: 25%;
+	}
+
+	/* LOGO寬度 */
+	.topbar .topbar-logo {
+		width: 44%;
+	}
+}
+
+/* XL LG */
+@media (max-width: 1399.98px) and (min-width: 992px) {
+	/* 選單寬度 */
+	.topbar ul {
+		width: 33%;
+	}
+
+	/* LOGO寬度 */
+	.topbar .topbar-logo {
+		width: 30%;
+	}
+}
+
+/* MD以下 */
+@media (max-width: 991.98px){
+	/* 選單寬度 */
+	.topbar ul {
+		display: none;
+	}
+
+	/* LOGO寬度 */
+	.topbar .topbar-logo {
+		width: 100%;
+	}
 }
 
 /* 首頁跑馬燈 */
@@ -305,21 +310,23 @@ a:hover {
 
 /* 首頁跑馬燈 h2標題 */
 .slider .slider-title h2 {
+	font-size: 2rem;
 	line-height: 2.5rem;
 	color: var(--text-color);
 }
 
 /* 首頁跑馬燈 h3標題 */
 .slider .slider-title h3 {
-	margin-bottom: 0.5rem;
+	font-size: 1.7rem;
+	margin-bottom: 0.8rem;
 }
 
 /* 首頁跑馬燈 a */
 .slider .slider-title a {
 	text-decoration: none;
 	font-weight: bold;
-	padding-bottom: 0.5rem;
-	border-bottom: 4.5px solid #000;
+	padding-bottom: 0.6rem;
+	border-bottom: 3.5px solid #000;
 }
 
 /* XXL XL LG MD SM */
@@ -339,13 +346,11 @@ a:hover {
 @media (max-width: 575.98px) {
 	/* 首頁跑馬燈 h2標題 */
 	.slider .slider-title h2 {
-		font-size: 1.8rem !important;
 		margin-top:  85px;
 	}
 
 	/* 首頁跑馬燈 h3標題 */
 	.slider .slider-title h3 {
-		font-size: 1.5rem !important;
 		margin-top: 245px;
 	}
 }
@@ -363,67 +368,120 @@ a:hover {
 	width: 100%;
 }
 
+.content .areas h3:first-child {
+	margin-bottom: 40px;
+	font-size: 1.9rem;
+}
+
 /* 網站形象介紹 */
 .content .content-about {
 	text-align: center;
+	line-height: 34px;
 }
 
 /* 網站形象介紹 底部水平線 */
 .content .about-hr {
 	margin-top: 30px;
-	border: 3px solid var(--text-color);
+	border: 2px solid var(--text-color);
 	width: 250px;
 }
 
-/* 橫向卷軸 */
-.content .card-scroll {
-	height: 350px;
-	width: 100%;
-	overflow-x: auto;
-	overflow-y: hidden;
+/* 螢幕寬度1920px以上 */
+@media (min-width: 1920px) {
+	/* 取消橫向卷軸 */
+	.content .card-scroll {
+		height: auto;
+		width: 100%;
+		overflow-x: hidden;
+		overflow-y: hidden;
+	}
+
+	/* 捲動區塊 */
+	.content .card-area {
+		height: auto;
+		width: 100%;
+	}
+
+	/* 商品 */
+	.card-item {
+		width: calc((100% - 120px) / 4);
+		float: left;
+		margin: 0px 20px;
+		aspect-ratio: 1 / 1;
+	}
+
+	/* 取消第一個商品的左外距 */
+	.card-item:first-child {
+		margin-left: 0px;
+	}
+
+	/* 取消最後一個商品的右外距 */
+	.card-item:last-child {
+		margin-right: 0px;
+	}
+
+	/* 商品圖片 */
+	.card-item img {
+		object-fit: cover;
+		width: 100%;
+		height: 100%;
+		margin-bottom: 10px;
+	}
+
 }
 
-/* 橫向卷軸-底 */
-.card-scroll::-webkit-scrollbar {
-	width: 5px;
-	height: 10px;
-	background-color: #aaa;
-}
+/* 螢幕寬度1920px以下 */
+@media (max-width: 1919.98px) {
+	/* 橫向卷軸 */
+	.content .card-scroll {
+		height: 350px;
+		width: 100%;
+		overflow-x: auto;
+		overflow-y: hidden;
+	}
 
-/* 橫向卷軸*-軸 */
-.card-scroll::-webkit-scrollbar-thumb {
-	background: #000;
-}
+	/* 橫向卷軸-底 */
+	.card-scroll::-webkit-scrollbar {
+		width: 5px;
+		height: 10px;
+		background-color: var(--webkit-scrollbar-color);
+	}
 
-/* 捲動區塊 */
-.content .card-area {
-	width: 1210px;
-	height: 350px;
-}
+	/* 橫向卷軸*-軸 */
+	.card-scroll::-webkit-scrollbar-thumb {
+		background: var(--webkit-scrollbar-thumb-color);
+	}
 
-/* 商品 */
-.card-item {
-	width: 280px;
-	float: left;
-	margin: 0px 15px;
-}
+	/* 捲動區塊 */
+	.content .card-area {
+		width: 1250px;
+		height: 350px;
+	}
 
-/* 取消第一個商品的左外距 */
-.card-item:first-child {
-	margin-left: 0px;
-}
+	/* 商品 */
+	.card-item {
+		width: 280px;
+		float: left;
+		margin: 0px 20px;
+	}
 
-/* 取消最後一個商品的右外距 */
-.card-item:last-child {
-	margin-right: 0px;
-}
+	/* 取消第一個商品的左外距 */
+	.card-item:first-child {
+		margin-left: 0px;
+	}
 
-/* 商品圖片 */
-.card-item img {
-	object-fit: cover;
-	width: 280px;
-	height: 280px;
-	margin-bottom: 10px;
+	/* 取消最後一個商品的右外距 */
+	.card-item:last-child {
+		margin-right: 0px;
+	}
+
+	/* 商品圖片 */
+	.card-item img {
+		object-fit: cover;
+		width: 280px;
+		height: 280px;
+		margin-bottom: 10px;
+	}
 }
 
 /* 商品名稱 */
@@ -463,21 +521,74 @@ a:hover {
 	width: 100%;
 }
 
-/* XXL */
-@media (min-width: 1400px){
+/* 品牌故事圖片 */
+.story-image img {
+	width: 100%;
+	height: 350px;
+	object-fit: cover;
+	object-position: left bottom;
+}
+
+@media (min-width: 1920.01px) {
+	/* 品牌故事 */
+	.content-story {
+		height: 450px;
+	}
+
 	/* 品牌故事圖片區塊 */
 	.story-image {
-		width: 40%;
+		width: 55%;
 	}
 
 	/* 品牌故事描述 */
 	.story-description {
-		width: calc(60% - 60px);
+		width: calc(45% - 80px);
+		padding-left: 80px;
 	}
 
 	/* 品牌故事文字區塊 */
 	.story-image > div {
 		display: none;
+	}
+
+	/* 品牌故事圖片 */
+	.story-image img {
+		width: 100%;
+		height: 450px;
+		object-fit: cover;
+		object-position: left center;
+	}
+}
+
+/* XXL */
+@media (max-width: 1920px) and (min-width: 1400px){
+	/* 品牌故事 */
+	.content-story {
+		height: 350px;
+	}
+
+	/* 品牌故事圖片區塊 */
+	.story-image {
+		width: 50%;
+	}
+
+	/* 品牌故事描述 */
+	.story-description {
+		width: calc(50% - 80px);
+		padding-left: 80px;
+	}
+
+	/* 品牌故事文字區塊 */
+	.story-image > div {
+		display: none;
+	}
+
+	/* 品牌故事圖片 */
+	.story-image img {
+		width: 100%;
+		height: 350px;
+		object-fit: cover;
+		object-position: left bottom;
 	}
 }
 
@@ -520,14 +631,6 @@ a:hover {
 		justify-content: center;
 		align-items: center;
 	}
-}
-
-/* 品牌故事圖片 */
-.story-image img {
-	width: 100%;
-	height: 350px;
-	object-fit: cover;
-	object-position: left bottom;
 }
 
 /* 超連結底部裝飾線 */
@@ -617,12 +720,12 @@ a.link-border {
 	.collections-scroll::-webkit-scrollbar {
 		width: 5px;
 		height: 10px;
-		background-color: #aaa;
+		background-color: var(--webkit-scrollbar-color);
 	}
 	
 	/* 卷軸樣式-軸 */
 	.collections-scroll::-webkit-scrollbar-thumb {
-		background: #000;
+		background: var(--webkit-scrollbar-thumb-color);
 	}
 
 	/* 作品區塊 */
@@ -693,7 +796,7 @@ a.link-border {
 /* 頁尾區塊 選單 */
 .footer ul {
 	list-style: none;
-	padding-left: 0px !important;
+	padding-left: 0px;
 	width: auto;
 	float: left;
 	margin-right: 200px;
