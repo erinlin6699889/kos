@@ -1,4 +1,8 @@
+
+/*#region Common Style */
+
 :root {
+	--background-color: #f2f2f2;
 	--text-color: #262626;
 	--text-color-hover: #c05a5a;
 	--webkit-scrollbar-color: #d1d0d0;
@@ -7,7 +11,7 @@
 
 /* BODY  */
 body {
-	background-color: #f2f2f2;
+	background-color: var(--background-color);
 	font-family: "Noto Sans CJK TC", "Microsoft JhengHei", "PingFang", "STHeiti", sans-serif, serif;
 	font-size: 1.3rem;
 	font-weight: bold;
@@ -25,6 +29,10 @@ a {
 a:hover {
 	color: var(--text-color-hover);
 }
+
+/*#endregion Common Style */
+
+/*#region Topbar Style */
 
 /* 導覽列顏色 (scrollTop > 60) */
 .topbar-colorful {
@@ -233,6 +241,130 @@ a:hover {
 	}
 }
 
+/*#endregion Topbar Style  */
+
+/*#region Burger Menu */
+
+/* 當Menu被:target，顯示選單 */
+#menu:target {
+	display: block;
+	-webkit-animation: .2s ease 0s normal forwards 1 fadein;
+    animation: .2s ease 0s normal forwards 1 fadein;
+}
+
+body:has(#menu:target) {
+	overflow: hidden;
+}
+
+/* 當Menu被:target，將卷軸隱藏 */
+body:has(#menu:target)::-webkit-scrollbar {
+	width: 0px;
+}
+
+/* 淡入效果 */
+@keyframes fadein{
+    0% { opacity: 0; }
+    100% { opacity: 1; }
+}
+
+/* 淡入效果 */
+@-webkit-keyframes fadein{
+    0% { opacity: 0; }
+    100% { opacity: 1; }
+}
+
+/* 漢堡選單 */
+.burger-menu {
+	position: fixed;
+	z-index: 1000;
+	top: 0px;
+	left: 0px;
+	background-color: var(--background-color);
+	width: 100%;
+	height: 100%;
+	display: none;
+	overflow: hidden;
+	padding: 20px;
+	opacity: .0;
+	transition: .2s;
+}
+
+/* 漢堡選單.active */
+.burger-menu.active {
+	display: block;
+}
+
+/* 選單區塊 */
+.menu-wrapper {
+	width: calc(100% - 40px);
+	height: 100%;
+}
+
+/* 關閉按鈕 */
+.burger-menu .menu-times {
+	width: 100%;
+	text-align: right;
+}
+
+/* 查詢輸入框 */
+.burger-menu .menu-search {
+	width: 100%;
+	background-color: var(--background-color);
+	border: none;
+	border-bottom: 3px solid #000;
+	padding: 10px 0px;
+	font-size: 1.3rem;
+}
+
+/* 取消查詢輸入框在被focus時會出現的黑框線 */
+.burger-menu .menu-search:focus {
+	outline: none;
+}
+
+/* 選單區塊 ul */
+.burger-menu ul {
+	list-style: none;
+	padding-left: 0px;
+	margin-top: 30px;
+}
+
+/* 選單區塊 超連結 */
+.burger-menu ul li a {
+	display: block;
+	width: 100%;
+	padding: 15px 0px;
+}
+
+/* 選單區塊 超連結:hover */
+.burger-menu ul li a:hover {
+	display: block;
+	width: 100%;
+}
+
+/* 選單區塊 超連結:after */
+.burger-menu ul li.has-sub a:after {
+	content: "";
+	background-image: url('../asset/chevron-right.png');
+	position: absolute;
+	right: 56px;
+	margin-top: 3px;
+	width: 25px;
+	height: 25px;
+	background-size: 23px 23px;
+	background-repeat: no-repeat;
+	transform: rotate(0deg);
+	transition: .1s;
+}
+
+/* icon旋轉效果 */
+/*.burger-menu ul li.has-sub a:hover:after {
+	transform: rotate(90deg);
+}*/
+
+/*#endregion Burger Menu  */
+
+/*#region Slider Style */
+
 /* 首頁跑馬燈 */
 .slider {
 	height: 100vh;
@@ -354,6 +486,10 @@ a:hover {
 	}
 }
 
+/*#endregion Slider Style  */
+
+/*#region Content Style - About  */
+
 /* 網頁內容 */
 .content {
 	width: 100%;
@@ -384,6 +520,10 @@ a:hover {
 	border: 2px solid var(--text-color);
 	width: 250px;
 }
+
+/*#endregion Content Style - About  */
+
+/*#region Content Style - Arrivals  */
 
 /* 螢幕寬度1920px以上 */
 @media (min-width: 1920px) {
@@ -492,6 +632,10 @@ a:hover {
 .card-item .item-title .item-price {
 	float: right;
 }
+
+/*#endregion Content Style - Arrivals  */
+
+/*#region Content Style - Story  */
 
 /* 品牌故事 */
 .content-story {
@@ -641,6 +785,10 @@ a.link-border {
 	margin-top: 60px;
 }
 
+/*#endregion Content Style - Story  */
+
+/*#region Content Style - Collections  */
+
 /* 作品區塊 */
 .collections {
 	position: relative;
@@ -779,6 +927,10 @@ a.link-border {
 	}
 }
 
+/*#endregion Content Style - Collections  */
+
+/*#region Footer Style  */
+
 /* 頁尾區塊 */
 .footer {
 	padding: 0rem 0px 3rem 0px;
@@ -792,13 +944,26 @@ a.link-border {
 	margin-bottom: 3rem;
 }
 
-/* 頁尾區塊 選單 */
-.footer ul {
-	list-style: none;
-	padding-left: 0px;
-	width: auto;
-	float: left;
-	margin-right: 200px;
+@media (min-width: 992px){
+	/* 頁尾區塊 選單 */
+	.footer ul {
+		list-style: none;
+		padding-left: 0px;
+		width: auto;
+		float: left;
+		margin-right: 200px;
+	}
+}
+
+@media (max-width: 991.98px) {
+	/* 頁尾區塊 選單 */
+	.footer ul {
+		list-style: none;
+		padding-left: 0px;
+		width: auto;
+		float: left;
+		margin-right: 100px;
+	}
 }
 
 /* 頁尾區塊 取消最後一個ul右外距 */
@@ -815,3 +980,43 @@ a.link-border {
 .footer ul li {
 	margin: 10px 0px;
 }
+
+/* 手機版頁尾 */
+.footer-mobile {
+	text-align: center;
+}
+
+/* 手機版頁尾 超連結 */
+.footer-mobile a {
+	width: 30px;
+	height: 30px;
+	margin: 0px 20px;
+}
+
+/* XS以上 */
+@media (min-width: 576px) {
+	/* 電腦版頁尾 */
+	.footer-pc {
+		display: block;
+	}
+
+	/* 手機版頁尾 */
+	.footer-mobile {
+		display: none;
+	}
+}
+
+/* XS */
+@media (max-width: 575.98px) {
+	/* 電腦版頁尾 */
+	.footer-pc {
+		display: none;
+	}
+
+	/* 手機版頁尾 */
+	.footer-mobile {
+		display: block;
+	}
+}
+
+/*#endregion Footer Style  */
