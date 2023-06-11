@@ -252,6 +252,7 @@ a:hover {
     animation: .2s ease 0s normal forwards 1 fadein;
 }
 
+/* 當Menu被:target，將body的overflow設為hidden */
 body:has(#menu:target) {
 	overflow: hidden;
 }
