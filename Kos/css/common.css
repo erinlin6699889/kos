@@ -172,6 +172,16 @@ a:hover {
 	text-align: right;
 }
 
+/* 左側選單項目對齊 */
+.topbar ul.topbar-left li {
+	text-align: left;
+}
+
+/* 左側選單項目對齊 */
+.topbar ul.topbar-right li {
+	text-align: right;
+}
+
 /* 選單項目 */
 .topbar li {
 	float: left;
@@ -216,12 +226,12 @@ a:hover {
 @media (min-width: 1400px) {
 	/* 選單寬度 */
 	.topbar ul {
-		width: 25%;
+		width: 30%;
 	}
 
 	/* LOGO寬度 */
 	.topbar .topbar-logo {
-		width: 44%;
+		width: 40%;
 	}
 }
 
@@ -291,6 +301,7 @@ a:hover {
 	top: 0px;
 	left: 0px;
 	background-color: var(--background-color);
+	font-weight: bold;
 	width: 100%;
 	height: 100%;
 	display: none;

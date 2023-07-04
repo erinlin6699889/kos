@@ -267,6 +267,7 @@
 /* 商品價格 */
 .card-item .item-title .item-price {
 	float: right;
+	font-weight: bold;
 }
 
 /*#endregion Content Style - Arrivals  */
