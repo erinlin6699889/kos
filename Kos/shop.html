@@ -15,7 +15,7 @@
 		<div class="wrapper">
 			<!-- PC 選單項目 -->
 			<ul>
-				<li><a href="#">shop</a></li>
+				<li><a href="shop.html" class="active">shop</a></li>
 				<li><a href="#">about</a></li>
 				<li><a href="#">contact</a></li>
 			</ul>
@@ -28,10 +28,10 @@
 				<li><a href="#">bag (0)</a></li>
 			</ul>
 			<!-- Mobile 選單項目 -->
-			<a href="#menu" class="mobile-bars">
+			<a href="javascript:void(0)" class="mobile-bars" onclick="ShowBurgerMenu()">
 				<img src="asset/bars.png" />
 			</a>
-			<a href="#" class="mobile-bag">
+			<a href="javascript:void(0)" class="mobile-bag">
 				<img src="asset/bag.png" />
 			</a>
 		</div>
@@ -42,7 +42,7 @@
 		<div class="menu-wrapper">
 			<!-- 關閉按鈕 -->
 			<div class="menu-times">
-				<a href="#"><img src="asset/times.png" /></a>
+				<a href="javascript:void(0)" onclick="HideBurgerMenu()"><img src="asset/times.png" /></a>
 			</div>
 			<!-- 搜尋列 -->
 			<input class="menu-search" type="text" placeholder="search" />
@@ -66,6 +66,85 @@
 			</ul>
 		</div>
 	</div>
+	
+	<!-- 商店標題 -->
+	<div class="shop-title">
+		<h3>planters & vases</h3>
+	</div>
 
+	<!-- 商品區塊 -->
+	<div class="shop-wrapper">
+
+		<!-- 商品種類選單 -->
+		<!-- <div class="shop-menu">
+			<ul>
+				<li><a href="#">new in</a></li>
+				<li><a href="#">tableware</a></li>
+				<li class="has-sub">
+					<a href="#">planters & vases</a>
+					<ul>
+						<li><a href="#">planters</a></li>
+						<li><a href="#">vases</a></li>
+					</ul>
+				</li>
+				<li><a href="#">decorative</a></li>
+			</ul>
+		</div> -->
+
+		<!-- 商品陳列區塊 -->
+		<!-- <div class="shop-content"> -->
+
+			<!-- 商品排序 -->
+			<!-- <div class="product-sort">
+				<div>all</div>
+				<div>sort by</div>
+			</div> -->
+
+			<!-- 商品陳列 -->
+			<!-- <div class="product-area"> -->
+				
+				<!-- 商品項目 -->
+				<!-- <div class="product-item">
+					<a href="#">
+						<img src="asset/shop-01.png" />
+						<div class="product-title">
+							<span class="product-name">noe vase</span>
+							<span class="product-price">$ 95</span>
+						</div>
+					</a>
+				</div> -->
+
+				<!-- 商品項目 -->
+				<!-- <div class="product-item">
+					<a href="#">
+						<img src="asset/shop-01.png" />
+						<div class="product-title">
+							<span class="product-name">noe vase</span>
+							<span class="product-price">$ 95</span>
+						</div>
+					</a>
+				</div> -->
+
+				<!-- 商品項目 -->
+				<!-- <div class="product-item">
+					<a href="#">
+						<img src="asset/shop-01.png" />
+						<div class="product-title">
+							<span class="product-name">noe vase</span>
+							<span class="product-price">$ 95</span>
+						</div>
+					</a>
+				</div>
+			</div> -->
+
+
+		<!-- </div> -->
+
+	</div>
+
+	<!-- JS -->
+	<script type="text/javascript" src="js/jquery-3.7.0.min.js"></script>
+	<script type="text/javascript" src="js/common.js"></script>
+	<script type="text/javascript" src="js/shop.js"></script>
 </body>
 </html>

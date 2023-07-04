@@ -1,4 +1,3 @@
-
 /*#region Slider Style */
 
 /* 首頁跑馬燈 */
@@ -262,6 +261,7 @@
 /* 商品名稱 */
 .card-item .item-title .item-name {
 	float: left;
+	font-weight: bold;
 }
 
 /* 商品價格 */
