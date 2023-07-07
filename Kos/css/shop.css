@@ -1,10 +1,12 @@
 
+/* 商店區塊 */
 .content {
 	width: 100%;
 	display: flex;
 	justify-content: center;
 }
 
+/* 商店標題 */
 .shop-title {
     margin-top: 60px;
     width: 100%;
@@ -15,13 +17,121 @@
     align-items: center;
 }
 
+/* 商店外層 */
+.shop-wrapper {
+    width: 100%;
+    margin-top: 40px;
+    height: calc(100vh - 204px);
+}
+
+/* 商店選單 */
 .shop-menu {
-    width: 240px;
+    width: 20%;
+    height: 100%;
     float: left;
 }
 
+/* 商店選單 ul */
+.shop-menu ul.shop-list {
+    list-style: none;
+    padding-left: 0px;
+    margin-top: 60px;
+}
+
+/* 商店選單 ul li */
+.shop-menu ul.shop-list li {
+    list-style: none;
+    margin: 20px 0px;
+}
+
+/* 商店選單 ul li ul */
+.shop-menu ul.shop-list > li > ul {
+    padding-left: 30px;
+}
+
+/* 商店選單 ul li a.active */
+.shop-menu ul.shop-list li a.active {
+    font-weight: bold;
+}
+
+/* 商店內容區塊 */
 .shop-content {
-    width: calc(100% - 240px);
-    height: 300px;
+    width: 80%;
+    height: 100%;
     float: left;
+}
+
+/* 商品區塊 */
+.product-toolbar {
+    width: 100%;
+    height: 60px;
+}
+
+/* 手機板商品選單 */
+.product-toolbar .product-all {
+    width: 50%;
+    height: 100%;
+    float: left;
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    font-weight: bold;
+}
+
+/* 排序選單 */
+.product-toolbar .product-sort {
+    width: 100%;
+    height: 100%;
+    float: left;
+    display: flex;
+    justify-content: end;
+    align-items: center;
+    font-weight: bold;
+}
+
+/* 商品展示區塊 */
+.product-area {
+    width: 100%;
+    height: calc(100% - 60px);
+    overflow-y: auto;
+}
+
+/* 商品展示區塊 橫向卷軸-底 */
+/* .product-area::-webkit-scrollbar {
+    width: 10px;
+    height: 5px;
+    margin-left: 10px;
+    background-color: var(--webkit-scrollbar-color);
+} */
+
+/* 商品展示區塊 橫向卷軸*-軸 */
+/* .product-area::-webkit-scrollbar-thumb {
+    background: var(--webkit-scrollbar-thumb-color);
+} */
+
+/* 商品 */
+.product-area .product-item {
+    width: calc((100% - 90px) / 3);
+    float: left;
+    margin: 0px 0px 40px 30px;
+}
+
+/* 商品圖片 */
+.product-area .product-item img {
+    object-fit: cover;
+    width: 100%;
+    height: 380px;
+    margin-bottom: 10px;
+}
+
+/* 商品名稱 */
+.product-area .product-item .product-name {
+    float: left;
+	font-weight: bold;
+}
+
+/* 商品價格 */
+.product-area .product-item .product-price {
+    float: right;
+	font-weight: bold;
 }
