@@ -6,29 +6,72 @@
 	justify-content: center;
 }
 
-/* 商店標題 */
-.shop-title {
-    margin-top: 60px;
-    width: 100%;
-    height: 100px;
-    font-weight: bold;
-    border-bottom: 4px solid #000;
-    display: flex;
-    align-items: center;
+/* LG XL XXL */
+@media (min-width: 992px) {
+    /* 商店標題 */
+    .shop-title {
+        margin-top: 60px;
+        width: 100%;
+        height: 100px;
+        font-weight: bold;
+        border-bottom: 4px solid #000;
+        display: flex;
+        align-items: center;
+    }
+
+    /* 商店外層 */
+    .shop-wrapper {
+        width: 100%;
+        margin-top: 40px;
+        height: calc(100vh - 204px);
+    }
+
+    /* 商店選單 */
+    .shop-menu {
+        width: 20%;
+        height: 100%;
+        float: left;
+    }
+
+    /* 商店內容區塊 */
+    .shop-content {
+        width: 80%;
+        height: 100%;
+        float: left;
+    }
 }
 
-/* 商店外層 */
-.shop-wrapper {
-    width: 100%;
-    margin-top: 40px;
-    height: calc(100vh - 204px);
-}
+/* MD 以下 */
+@media (max-width: 991.98px) {
+    /* 商店標題 */
+    .shop-title {
+        margin-top: 40px;
+        width: 100%;
+        height: 80px;
+        font-weight: bold;
+        border-bottom: 4px solid #000;
+        display: flex;
+        align-items: center;
+    }
 
-/* 商店選單 */
-.shop-menu {
-    width: 20%;
-    height: 100%;
-    float: left;
+    /* 商店外層 */
+    .shop-wrapper {
+        width: 100%;
+        margin-top: 10px;
+        height: calc(100vh - 135px);
+    }
+
+    /* 商店選單 */
+    .shop-menu {
+        display: none;
+    }
+
+    /* 商店內容區塊 */
+    .shop-content {
+        width: 100%;
+        height: 100%;
+        float: left;
+    }
 }
 
 /* 商店選單 ul */
@@ -54,46 +97,60 @@
     font-weight: bold;
 }
 
-/* 商店內容區塊 */
-.shop-content {
-    width: 80%;
-    height: 100%;
-    float: left;
-}
-
 /* 商品區塊 */
 .product-toolbar {
     width: 100%;
     height: 60px;
 }
 
-/* 手機板商品選單 */
-.product-toolbar .product-all {
-    width: 50%;
-    height: 100%;
-    float: left;
-    display: flex;
-    justify-content: start;
-    align-items: center;
-    font-weight: bold;
+/* LG XL XXL */
+@media (min-width: 992px) {
+    /* 手機板商品選單 */
+    .product-toolbar .product-all {
+        width: 50%;
+        height: 100%;
+        float: left;
+        display: none;
+        justify-content: start;
+        align-items: center;
+        font-weight: bold;
+    }
+
+    /* 排序選單 */
+    .product-toolbar .product-sort {
+        width: 100%;
+        height: 100%;
+        float: left;
+        display: flex;
+        justify-content: end;
+        align-items: center;
+        font-weight: bold;
+    }
 }
 
-/* 排序選單 */
-.product-toolbar .product-sort {
-    width: 100%;
-    height: 100%;
-    float: left;
-    display: flex;
-    justify-content: end;
-    align-items: center;
-    font-weight: bold;
-}
+/* MD 以下 */
+@media (max-width: 991.98px) {
+    /* 手機板商品選單 */
+    .product-toolbar .product-all {
+        width: 50%;
+        height: 100%;
+        float: left;
+        display: flex;
+        justify-content: start;
+        align-items: center;
+        font-weight: bold;
+    }
 
-/* 商品展示區塊 */
-.product-area {
-    width: 100%;
-    height: calc(100% - 60px);
-    overflow-y: auto;
+    /* 排序選單 */
+    .product-toolbar .product-sort {
+        width: 50%;
+        height: 100%;
+        float: left;
+        display: flex;
+        justify-content: end;
+        align-items: center;
+        font-weight: bold;
+    }
 }
 
 /* 商品展示區塊 橫向卷軸-底 */
@@ -111,27 +168,81 @@
 
 /* 商品 */
 .product-area .product-item {
-    width: calc((100% - 90px) / 3);
     float: left;
-    margin: 0px 0px 40px 30px;
 }
 
 /* 商品圖片 */
 .product-area .product-item img {
     object-fit: cover;
     width: 100%;
-    height: 380px;
     margin-bottom: 10px;
 }
 
 /* 商品名稱 */
 .product-area .product-item .product-name {
     float: left;
-	font-weight: bold;
+    font-weight: bold;
 }
 
 /* 商品價格 */
 .product-area .product-item .product-price {
     float: right;
-	font-weight: bold;
+    font-weight: bold;
+}
+
+/* LG XL XXL */
+@media (min-width: 991.98px) {
+    /* 商品展示區塊 */
+    .product-area {
+        width: 100%;
+        height: calc(100% - 60px);
+        overflow-y: auto;
+    }
+
+    .product-area .product-item {
+        width: calc((100% - 90px) / 3);
+        margin: 0px 0px 40px 30px;
+    }
+}
+
+/* MD以下 */
+@media (max-width: 991.98px) {
+    /* 商品展示區塊 */
+    .product-area {
+        width: calc(100% + 30px);
+        margin-left: -15px;
+        height: calc(100% - 60px);
+        overflow-y: auto;
+    }
+
+    /* 商品 */
+    .product-area .product-item {
+        width: calc(50% - 30px);
+        float: left;
+        margin: 0px 15px 40px 15px;
+    }
+}
+
+/* XXL */
+@media (min-width: 1660px) {
+    /* 商品圖片高度 */
+    .product-area .product-item img {
+        height: 380px;
+    }
+}
+
+/* LG XL */
+@media (max-width: 1399.98px) {
+    /* 商品圖片高度 */
+    .product-area .product-item img {
+        height: 250px;
+    }
+}
+
+/* MD */
+@media (max-width: 991.98px) {
+    /* 商品圖片高度 */
+    .product-area .product-item img {
+        height: 250px;
+    }
 }
