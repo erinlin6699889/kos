@@ -83,6 +83,68 @@
 			</a>
 
 			<!-- 商品標題 -->
+			<div class="product-title">
+				<div class="product-name">noe vase</div>
+				<div class="product-price">$ 95</div>
+			</div>
+
+			<!-- 商品介紹 -->
+			<div class="product-content">
+
+				<!-- 介紹頁籤 -->
+				<div class="product-detail">
+					<ul class="product-tab">
+						<li><a id="details-tab" href="javascript:void(0)" class="active" onclick="ShowDetails()">details</a></li>
+						<li><a id="care-tab" href="javascript:void(0)" onclick="ShowCare()">care</a></li>
+						<li><a id="shipping-tab" href="javascript:void(0)" onclick="ShowShipping()">shipping & returns</a></li>
+					</ul>
+				</div>
+
+				<!-- 詳細資訊 -->
+				<div id="details" class="tab-content active">
+					noe vase is handmade with clay, inspired by the nordic nature and color tones. Due to their handmade nature, each bowl is unique in shape and size.
+				</div>
+
+				<!-- 保存方式 -->
+				<div id="care" class="tab-content disabled">
+					Please store in a cool place.
+				</div>
+
+				<!-- 退換貨方式 -->
+				<div id="shipping" class="tab-content disabled">
+					If the product is returned within the seven-day appreciation period after receipt of the goods and returned within the appreciation period, it can be replaced with a new product or returned. If the product is not sent back within the seven-day hesitation period (appreciation period), no return or exchange will be accepted.
+				</div>
+			</div>
+
+			<!-- 商品選購 -->
+			<div class="product-buy">
+
+				<!-- 商品數量選擇 -->
+				<div class="cart-count">
+					<!-- 減少數量 -->
+					<div>
+						<a href="javascript:void(0)" onclick="ReduceProductNumber()">
+							<img class="minus-icon" src="asset/minus.png" />
+						</a>
+					</div>
+					<!-- 數量 -->
+					<div class="number-label">
+						<label id="number">1</label>
+					</div>
+					<!-- 增加數量 -->
+					<div>
+						<a href="javascript:void(0)" onclick="IncreaseProductNumber()">
+							<img class="plus-icon" src="asset/plus.png" />
+						</a>
+					</div>
+				</div>
+
+				<!-- 加入購物車 -->
+				<div class="cart-add">
+					<a href="javascript:void(0)" onclick="AddItemToCart()">add to bag</a>
+				</div>
+
+			</div>
 
 		</div>
 
