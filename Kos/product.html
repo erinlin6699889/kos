@@ -25,14 +25,15 @@
 			<ul class="topbar-right">
 				<li><a href="#">account</a></li>
 				<li><a href="#">search</a></li>
-				<li><a href="#">bag (0)</a></li>
+				<li><a href="javascript:void(0)" onclick="ShowCartDetail()">bag (<span id="pc-cart">0</span>)</a></li>
 			</ul>
 			<!-- Mobile 選單項目 -->
 			<a href="javascript:void(0)" class="mobile-bars" onclick="ShowBurgerMenu()">
 				<img src="asset/bars.png" />
 			</a>
-			<a href="javascript:void(0)" class="mobile-bag">
+			<a href="javascript:void(0)" class="mobile-bag" onclick="ShowCartDetail()">
 				<img src="asset/bag.png" />
+				<span class="badge-cart">(<span id="mobile-cart">0</span>)</span>
 			</a>
 		</div>
 	</div>
@@ -88,8 +89,8 @@
 
 			<!-- 商品標題 -->
 			<div class="product-title">
-				<div class="product-name">noe vase</div>
-				<div class="product-price">$ 95</div>
+				<div id="product-name" class="product-name">noe vase</div>
+				<div id="product-price" class="product-price">$ 95</div>
 			</div>
 
 			<!-- 商品介紹 -->
@@ -160,21 +161,51 @@
 
     </div>
 
-	<!-- (手機版)加入購物車提示區塊 -->
-	<div id="hint" class="content hint-bg">
+	<!-- 加入購物車提示區塊 -->
+	<div id="hint-panel" class="content">
+		<!-- 黑底 -->
+		<div id="hint-bg" class=" hint-bg"></div>
+
 		<!-- 提示區塊 -->
-		<div class="cart-hint">
+		<div id="cart-hint" class="cart-hint">
 			<!-- 標題文字 -->
 			<div class="cart-hint-title">
-
+				<div class="hint-text">
+					 <span><img src="asset/bag-check.png" />added to bag</span>
+				</div>
+				<!-- 關閉按鈕 -->
+				<div class="hint-times">
+					<a href="javascript:void(0)" onclick="HideCartHint()"><img src="asset/times.png" /></a>
+				</div>
 			</div>
-			<!-- 加入項目 -->
+
+			<!-- 當前加入項目 -->
 			<div class="cart-hint-item">
-
+				<div class="cart-hint-img">
+					<img src="asset/shop-01.png" />
+				</div>
+				<div class="cart-hint-info">
+					<div class="item-name"><span id="current-items">noe vase</span> x <span id="current-count">1</span></div>
+					<div class="item-price"><span id="current-price">$ 95</span></div>
+				</div>
 			</div>
+
 			<!-- 查看購物車 -->
 			<div class="cart-hint-view">
+				<a href="javascript:void(0)" onclick="ShowCartDetail()">view bag</a>
+			</div>
 
+		</div>
+
+	</div>
+
+	<!-- 購物車 -->
+	<div id="cart-panel" class="content">
+		<!-- 標題文字 -->
+		<div class="cart-title">
+			<!-- 關閉按鈕 -->
+			<div class="cart-times">
+				<a href="javascript:void(0)" onclick="HideCartDetail()"><img src="asset/times.png" /></a>
 			</div>
 		</div>
 	</div>
