@@ -67,7 +67,7 @@ function AddItemToCart() {
     // 載入商品資訊
     $('#current-items').text($('#product-name').text());
     $('#current-count').text($('#number').text());
-    $('#current-price').text($('#product-price').text());
+    $('#current-price').text('$' + parseInt($('#product-price').text().split(' ')[1]) * parseInt($('#number').text()));
 
     // 將商品資訊加入到Common.js定義的物件中
     CartItemsList.push({

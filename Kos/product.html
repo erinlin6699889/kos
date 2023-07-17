@@ -202,12 +202,68 @@
 	<!-- 購物車 -->
 	<div id="cart-panel" class="content">
 		<!-- 標題文字 -->
-		<div class="cart-title">
+		<div class="cart-head">
 			<!-- 關閉按鈕 -->
 			<div class="cart-times">
 				<a href="javascript:void(0)" onclick="HideCartDetail()"><img src="asset/times.png" /></a>
 			</div>
+
+			<!-- 標題 -->
+			<div class="cart-title">
+				bag
+			</div>
 		</div>
+
+		<!-- 購物車 -->
+		<div class="cart-body">
+			<table class="cart-table">
+				<tbody>
+					<tr>
+						<td>
+							<div class="cart-column1">
+								<div class="cart-img-cover">
+									<img src="asset/shop-01.png" />
+								</div>
+							</div>
+							<div class="cart-column2">
+								<div class="cart-name">noe vase</div>
+								<!-- 商品數量選擇 -->
+								<div class="cart-count">
+									<!-- 減少數量 -->
+									<div>
+										<a href="javascript:void(0)" onclick="ReduceCartNumber(1)">
+											<img class="minus-icon" src="asset/minus.png" />
+										</a>
+									</div>
+									<!-- 數量 -->
+									<div class="number-label">
+										<label id="number-1">1</label>
+									</div>
+									<!-- 增加數量 -->
+									<div>
+										<a href="javascript:void(0)" onclick="IncreaseCartNumber(1)">
+											<img class="plus-icon" src="asset/plus.png" />
+										</a>
+									</div>
+								</div>
+							</div>
+							<div class="cart-column3">
+								<div class="cart-price">$95</div>
+								<div class="cart-remove">
+									<a href="javascript:void(0)" onclick="RemoveCartItem()"><img src="asset/trash.png" /></a>
+								</div>
+							</div>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+
+		<!-- 結帳 -->
+		<div class="cart-footer">
+
+		</div>
+
 	</div>
 
     <!-- JS -->
