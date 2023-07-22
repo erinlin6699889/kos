@@ -62,7 +62,7 @@ function IncreaseProductNumber() {
 }
 
 // 將商品加入購物車
-function AddItemToCart() {
+function AddItemToCart(id) {
     // alert('已將' + $('#number').text() + '件商品加入購物車');
     // 載入商品資訊
     $('#current-items').text($('#product-name').text());
@@ -71,9 +71,10 @@ function AddItemToCart() {
 
     // 將商品資訊加入到Common.js定義的物件中
     CartItemsList.push({
+        id: id,
         name: $('#product-name').text(),
-        count: $('#number').text(),
-        price: $('#product-price').text()
+        count: parseInt($('#number').text()),
+        price: parseInt($('#product-price').text())
     });
 
     CartItemsCount += parseInt($('#number').text());

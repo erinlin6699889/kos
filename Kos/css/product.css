@@ -215,6 +215,8 @@ body {
 /* 商品頁籤 */
 .product-content ul.product-tab {
     padding-left: 0px;
+    display: flex; 
+    justify-content: space-between;
 }
 
 /* 商品頁籤 li */
