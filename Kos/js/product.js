@@ -69,18 +69,40 @@ function AddItemToCart(id) {
     $('#current-count').text($('#number').text());
     $('#current-price').text('$' + parseInt($('#product-price').text().split(' ')[1]) * parseInt($('#number').text()));
 
-    // 將商品資訊加入到Common.js定義的物件中
-    CartItemsList.push({
-        id: id,
-        name: $('#product-name').text(),
-        count: parseInt($('#number').text()),
-        price: parseInt($('#product-price').text())
-    });
+    // 檢查同商品是否已在購物車內
+    let CartExistItem = false;
+    if(CartItemsList.length > 0){
+        CartItemsList.forEach((item, i, arr) => {
+            if(item.id == id) {
+                CartExistItem = true;
+                item.count += parseInt($('#number').text());  // 加總數字
+            }
+        })
+    }
+    if(!CartExistItem) {
+        // 將商品資訊加入到Common.js定義的物件中
+        CartItemsList.push({
+            id: id,
+            name: $('#product-name').text(),
+            count: parseInt($('#number').text()),
+            price: parseInt($('#product-price').text())
+        });
+    } 
 
-    CartItemsCount += parseInt($('#number').text());
     // 更新介面上顯示的數字
+    CartItemsCount += parseInt($('#number').text());
     $('#pc-cart').text(CartItemsCount);
     $('#mobile-cart').text(CartItemsCount);
+
+    // 更新購物車內容
+    $('#cart-no-item').hide();
+    $('#cart-item-list').show();
+    $('#checkout-btn').show();
+
+    // 更新購物車HTML
+    $('#cart-item-list .cart-content-table .cart-table > tbody').html(`
+    
+    `);
 
     $('#hint-panel').show();
 }
