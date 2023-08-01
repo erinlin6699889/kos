@@ -1,0 +1,602 @@
+@charset "UTF-8";
+/* 全域變數 */
+:root {
+  --background-color: #f2f2f2;
+  --text-color: #262626;
+  --text-color-hover: #c05a5a;
+  --webkit-scrollbar-color: #d1d0d0;
+  --webkit-scrollbar-thumb-color: #000;
+}
+
+/* BODY  */
+body {
+  background-color: var(--background-color);
+  font-family: "Noto Sans CJK TC", "Microsoft JhengHei", "PingFang", "STHeiti", sans-serif, serif;
+  font-size: 1.3rem;
+  font-weight: 500;
+  margin: 0;
+}
+
+/* 隱藏卷軸 */
+::-webkit-scrollbar {
+  width: 0px;
+}
+
+/* 超連結 */
+a {
+  color: var(--text-color);
+  text-decoration: none;
+  transition: 0.2s;
+}
+
+/* 超連結:hover */
+a:hover {
+  color: var(--text-color-hover);
+}
+
+/* 導覽列顏色 (scrollTop > 60) */
+.topbar-colorful {
+  background-color: #d2ccc6 !important;
+  box-shadow: 0px 0px 10px 2px rgba(0, 0, 0, 0.2);
+}
+
+/* 外層 */
+.wrapper {
+  position: relative;
+}
+@media (min-width: 1400px) {
+  .wrapper { /* XXL */
+    width: 75%;
+  }
+}
+@media (max-width: 1399.98px) and (min-width: 992px) {
+  .wrapper { /* XXL XL LG */
+    width: 85%;
+  }
+}
+@media (max-width: 991.98px) {
+  .wrapper { /* MD以下 */
+    width: 90%;
+  }
+}
+
+/* 手機版選單按鈕 */
+@media (min-width: 1400px) {
+  .mobile-bars { /* XXL */
+    display: none;
+  }
+}
+@media (max-width: 1399.98px) and (min-width: 992px) {
+  .mobile-bars { /* XXL XL LG */
+    display: none;
+  }
+}
+@media (max-width: 991.98px) {
+  .mobile-bars { /* MD以下 */
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+}
+
+/* 手機版購物車按鈕 */
+@media (min-width: 1400px) {
+  .mobile-bag { /* XXL */
+    display: none;
+  }
+}
+@media (max-width: 1399.98px) and (min-width: 992px) {
+  .mobile-bag { /* XXL XL LG */
+    display: none;
+  }
+}
+@media (max-width: 991.98px) {
+  .mobile-bag { /* MD以下 */
+    position: fixed;
+    top: 0px;
+    right: 0px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+}
+
+/* 手機板導覽列 */
+.mobile-bars .mobile-bag { /* 手機版購物車按鈕 */
+  height: 60px;
+  width: 60px;
+}
+.mobile-bars .mobile-bag img { /* 手機版選單圖示 */
+  height: 20px;
+}
+.mobile-bars img { /* 手機版購物車圖示 */
+  height: 15px;
+}
+
+/* 上方導覽列 */
+.topbar {
+  background-color: transparent;
+  width: 100%;
+  height: 60px;
+  display: flex;
+  justify-content: center;
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  z-index: 10;
+  transition: 0.2s;
+}
+.topbar .wrapper { /* 上方導覽列 內層包覆 */
+  display: flex;
+  justify-content: center;
+}
+.topbar ul { /* 導覽列選單 */
+  list-style: none;
+  float: left;
+  display: inline;
+  margin: 0px;
+  padding: 0px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+@media (min-width: 1400px) {
+  .topbar ul { /* XXL */
+    width: 30%;
+  }
+}
+@media (max-width: 1399.98px) and (min-width: 992px) {
+  .topbar ul { /* XL LG */
+    width: 33%;
+  }
+}
+@media (max-width: 991.98px) {
+  .topbar ul { /* MD以下 */
+    display: none;
+  }
+}
+.topbar ul:first-child { /* 左側選單 */
+  text-align: left;
+}
+.topbar ul:last-child { /* 右側選單 */
+  text-align: right;
+}
+.topbar ul.topbar-left { /* 左側選單項目 */ }
+.topbar ul.topbar-left li { /* 左側選單項目靠左對齊 */
+  text-align: left;
+}
+.topbar ul.topbar-right { /* 右側選單項目 */ }
+.topbar ul.topbar-right li { /* 右側選單項目對齊 */
+  text-align: right;
+}
+.topbar li { /* 選單項目 */
+  float: left;
+  width: 33.3%;
+  text-align: center;
+  white-space: nowrap;
+}
+.topbar li > a { /* a */
+  width: 100px;
+  font-weight: 500;
+  text-decoration: none;
+  color: var(--text-color);
+}
+.topbar li > a.active { /* a.active */
+  font-weight: bold;
+}
+.topbar li > a:hover,
+.topbar li > a:focus,
+.topbar li > a:active { /* a:hover, a:focus, a:active */
+  color: var(--text-color-hover);
+}
+.topbar .topbar-logo { /* 導覽列 LOGO */
+  height: 100%;
+  float: left;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.topbar .topbar-logo img { /* 網站LOGO */
+  height: 20px;
+}
+@media (min-width: 1400px) {
+  .topbar .topbar-logo { /* XXL */
+    width: 40%;
+  }
+}
+@media (max-width: 1399.98px) and (min-width: 992px) {
+  .topbar .topbar-logo { /* XL LG */
+    width: 30%;
+  }
+}
+@media (max-width: 991.98px) {
+  .topbar .topbar-logo { /* MD以下 */
+    width: 100%;
+  }
+}
+
+/* 漢堡選單 */
+.burger-menu {
+  position: fixed;
+  z-index: 1000;
+  top: 0px;
+  left: 0px;
+  background-color: var(--background-color);
+  font-weight: bold;
+  width: 100%;
+  height: 100%;
+  display: none;
+  overflow: hidden;
+  padding: 20px;
+  transition: 0.2s;
+}
+.burger-menu .active { /* 漢堡選單.active */
+  display: block;
+}
+.burger-menu .menu-times { /* 關閉按鈕 */
+  width: 100%;
+  text-align: right;
+}
+.burger-menu .menu-search { /* 查詢輸入框 */
+  width: 100%;
+  background-color: var(--background-color);
+  border: none;
+  border-bottom: 3px solid #000;
+  padding: 10px 0px;
+  font-size: 1.3rem;
+}
+.burger-menu .menu-search:focus { /* 取消查詢輸入框在被focus時會出現的黑框線 */
+  outline: none;
+}
+.burger-menu ul { /* 選單區塊 ul */
+  list-style: none;
+  padding-left: 0px;
+  margin-top: 30px;
+}
+.burger-menu ul li { /* li */ }
+.burger-menu ul li a { /* 超連結 */
+  display: block;
+  width: 100%;
+  padding: 15px 0px;
+}
+.burger-menu ul li a:hover { /* 超連結:hover */
+  display: block;
+  width: 100%;
+}
+.burger-menu ul li.has-sub { /* li(有子項目) */ }
+.burger-menu ul li.has-sub a:after { /* 超連結:after */
+  content: "";
+  background-image: url("../asset/chevron-right.png");
+  position: absolute;
+  right: 56px;
+  margin-top: 3px;
+  width: 25px;
+  height: 25px;
+  background-size: 23px 23px;
+  background-repeat: no-repeat;
+  transform: rotate(0deg);
+  transition: 0.1s;
+}
+
+/* 選單區塊 */
+.menu-wrapper {
+  width: calc(100% - 40px);
+  height: 100%;
+}
+
+/* 手機版購物車數字 */
+.badge-cart {
+  min-width: 18px;
+  height: 18px;
+  padding: 2px;
+  font-size: 1.2rem;
+  color: #000;
+  text-align: center;
+  margin-top: -11px;
+  margin-left: 8px;
+  margin-right: 20px;
+  font-weight: bold;
+}
+
+/* 購物車介面 */
+#cart-panel .cart-count { /* 數量區塊 */
+  width: 100%;
+  float: left;
+  font-size: 1.2rem;
+  padding-top: 5px;
+}
+#cart-panel .cart-count div { /* div */
+  float: left;
+}
+#cart-panel .cart-add { /* 加入購物車區塊 */
+  width: 50%;
+  float: right;
+  text-align: right;
+  white-space: nowrap;
+}
+#cart-panel .plus-icon { /* 新增icon圖示 */
+  width: 30px;
+  height: 30px;
+}
+#cart-panel .minus-icon { /* 減少icon圖示 */
+  width: 30px;
+  height: 30px;
+}
+#cart-panel .number-label { /* 數字顯示 div */
+  text-align: center;
+  width: 55px;
+}
+@media (min-width: 1660px) {
+  #cart-panel { /* XXL以上 */
+    display: none;
+    position: fixed;
+    top: 0px;
+    right: 0px;
+    width: 42vw;
+    height: 100vh;
+    padding: 20px 80px;
+    box-sizing: border-box;
+    z-index: 20;
+    background-color: #f2f2f2;
+    border-left: 1px solid #d1d0d0;
+  }
+}
+@media (max-width: 1659.98px) {
+  #cart-panel { /* XXL以下 */
+    display: none;
+    position: fixed;
+    top: 0px;
+    right: 0px;
+    width: 42vw;
+    height: 100vh;
+    padding: 20px 60px;
+    box-sizing: border-box;
+    z-index: 20;
+    background-color: #f2f2f2;
+    border-left: 1px solid #d1d0d0;
+  }
+}
+@media (max-width: 1399.98px) {
+  #cart-panel { /* LG以下 */
+    display: none;
+    position: fixed;
+    top: 0px;
+    right: 0px;
+    width: 55vw;
+    height: 100vh;
+    padding: 20px 60px;
+    box-sizing: border-box;
+    z-index: 20;
+    background-color: #f2f2f2;
+    border-left: 1px solid #d1d0d0;
+  }
+}
+@media (max-width: 991.98px) {
+  #cart-panel { /* MD以下 */
+    display: none;
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    width: 100vw;
+    height: 100vh;
+    padding: 20px;
+    box-sizing: border-box;
+    z-index: 20;
+    background-color: #f2f2f2;
+  }
+}
+
+/* 購物車標題 */
+@media (max-width: 1659.98px) {
+  .cart-head { /* XXL以下 */
+    width: 100%;
+    height: 120px;
+  }
+}
+@media (max-width: 1399.98px) {
+  .cart-head { /* LG以下 */
+    width: 100%;
+    height: 120px;
+  }
+}
+@media (max-width: 991.98px) {
+  .cart-head { /* MD以下 */
+    width: 100%;
+    height: 80px;
+  }
+}
+
+/* 購物車標題 */
+@media (min-width: 1660px) {
+  .cart-title { /* XXL以上 */
+    font-size: 1.6rem;
+    padding: 40px 0px;
+  }
+}
+@media (max-width: 1659.98px) {
+  .cart-title { /* XXL以下 */
+    font-size: 1.6rem;
+    padding: 40px 0px;
+  }
+}
+@media (max-width: 1399.98px) {
+  .cart-title { /* LG以下 */
+    font-size: 1.6rem;
+    padding: 40px 0px;
+  }
+}
+@media (max-width: 991.98px) {
+  .cart-title { /* MD以下 */
+    font-size: 1.5rem;
+    padding: 20px 0px;
+  }
+}
+
+/* 購物車內容 */
+@media (min-width: 1660px) {
+  .cart-body { /* XXL以上 */
+    width: 100%;
+    height: calc(100% - 210px);
+  }
+}
+@media (max-width: 1659.98px) {
+  .cart-body { /* XXL以下 */
+    width: 100%;
+    height: calc(100% - 210px);
+  }
+}
+@media (max-width: 1399.98px) {
+  .cart-body { /* LG以下 */
+    width: 100%;
+    height: calc(100% - 210px);
+  }
+}
+@media (max-width: 991.98px) {
+  .cart-body { /* MD以下 */
+    width: 100%;
+    height: calc(100% - 160px);
+  }
+}
+
+/* 數字顯示 */
+.cart-number {
+  font-size: 1.5rem;
+  margin-top: -5px;
+}
+
+/* 關閉按鈕 */
+.cart-times {
+  float: right;
+}
+
+/* 購物車表格 */
+.cart-table {
+  width: 100%;
+}
+.cart-table > tbody > tr > td { /* td */
+  padding: 20px 0px;
+}
+.cart-table > tbody > tr:first-child > td { /* tr:first-child td */
+  border-top: none;
+}
+
+/* 購物車 圖片 */
+.cart-column1 {
+  float: left;
+  width: 100px;
+}
+
+/* 購物車 品名數量 */
+.cart-column2 {
+  float: left;
+  width: calc(100% - 180px);
+  box-sizing: border-box;
+  padding: 0px 30px;
+}
+
+/* 購物車 價格刪除 */
+.cart-column3 {
+  float: left;
+  width: 80px;
+  text-align: right;
+}
+
+/* 購物車圖片大小 */
+.cart-img-cover {
+  width: 100px;
+  height: 100px;
+}
+.cart-img-cover img { /* 購物車圖片 */
+  -o-object-fit: cover;
+     object-fit: cover;
+  width: 100%;
+  height: 100%;
+}
+
+/* 購物車商品名稱 */
+.cart-name {
+  width: 100%;
+  height: 60px;
+}
+
+/* 購物車商品價格 */
+.cart-price {
+  width: 100%;
+  height: 60px;
+}
+
+/* 購物車無商品 */
+#cart-no-item {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* 購物車有商品 */
+#cart-item-list {
+  width: 100%;
+  height: 100%;
+}
+
+/* 購物車 表格內容 (超出要出現卷軸) */
+.cart-content-table {
+  width: 100%;
+  max-height: calc(100% - 50px);
+  overflow-y: auto;
+  border-top: 3px solid #000;
+}
+
+/* 卷軸樣式-底 */
+.cart-content-table::-webkit-scrollbar {
+  width: 0px;
+  height: 5px;
+  background-color: var(--webkit-scrollbar-color);
+}
+
+/* 卷軸樣式-軸 */
+.cart-content-table::-webkit-scrollbar-thumb {
+  background: var(--webkit-scrollbar-thumb-color);
+}
+
+/* 購物車內容總和 */
+.cart-content-total {
+  height: 50px;
+  width: 100%;
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  border-top: 3px solid #000;
+}
+
+/* 商品總數 */
+.total-count {
+  float: left;
+  width: 50%;
+}
+
+/* 商品總價格 */
+.total-price {
+  float: right;
+  width: 50%;
+  text-align: right;
+}
+
+/* 購物車底部 */
+.cart-footer {
+  width: 100%;
+  height: 70px;
+  display: flex;
+  justify-content: end;
+  align-items: center;
+}
+.cart-footer a { /* 超連結 */
+  font-weight: bold;
+  font-size: 1.5rem;
+  border-bottom: 4px solid #000;
+  padding: 10px 0px;
+}/*# sourceMappingURL=common.css.map */
