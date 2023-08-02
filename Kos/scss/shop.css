@@ -1,0 +1,208 @@
+@charset "UTF-8";
+/* 商店區塊 */
+.content {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+/* 商店標題 */
+@media (min-width: 992px) {
+  .shop-title { /* LG XL XXL */
+    margin-top: 60px;
+    width: 100%;
+    height: 100px;
+    font-weight: bold;
+    border-bottom: 4px solid #000;
+    display: flex;
+    align-items: center;
+  }
+}
+@media (max-width: 991.98px) {
+  .shop-title { /* MD 以下 */
+    margin-top: 40px;
+    width: 100%;
+    height: 80px;
+    font-weight: bold;
+    border-bottom: 4px solid #000;
+    display: flex;
+    align-items: center;
+  }
+}
+
+/* 商店外層 */
+@media (min-width: 992px) {
+  .shop-wrapper { /* LG XL XXL */
+    width: 100%;
+    margin-top: 40px;
+    height: calc(100vh - 204px);
+  }
+}
+@media (max-width: 991.98px) {
+  .shop-wrapper { /* MD 以下 */
+    width: 100%;
+    margin-top: 10px;
+    height: calc(100vh - 135px);
+  }
+}
+
+/* 商店選單 */
+@media (min-width: 992px) {
+  .shop-menu { /* LG XL XXL */
+    width: 20%;
+    height: 100%;
+    float: left;
+  }
+}
+@media (max-width: 991.98px) {
+  .shop-menu { /* MD 以下 */
+    display: none;
+  }
+}
+
+/* 商店內容區塊 */
+@media (min-width: 992px) {
+  .shop-content { /* LG XL XXL */
+    width: 80%;
+    height: 100%;
+    float: left;
+  }
+}
+@media (max-width: 991.98px) {
+  .shop-content { /* MD 以下 */
+    width: 100%;
+    height: 100%;
+    float: left;
+  }
+}
+
+/* 商店選單 */
+.shop-menu ul.shop-list {
+  list-style: none;
+  padding-left: 0px;
+  margin-top: 60px;
+}
+.shop-menu ul.shop-list li {
+  list-style: none;
+  margin: 20px 0px;
+}
+.shop-menu ul.shop-list li a.active {
+  font-weight: bold;
+}
+.shop-menu ul.shop-list > li > ul {
+  padding-left: 30px;
+}
+
+/* 商品區塊 */
+.product-toolbar {
+  width: 100%;
+  height: 60px;
+}
+.product-toolbar .product-all { /* 手機板商品選單 */ }
+@media (min-width: 992px) {
+  .product-toolbar .product-all { /* LG XL XXL */
+    width: 50%;
+    height: 100%;
+    float: left;
+    display: none;
+    justify-content: start;
+    align-items: center;
+    font-weight: bold;
+  }
+}
+@media (max-width: 991.98px) {
+  .product-toolbar .product-all { /* MD 以下 */
+    width: 50%;
+    height: 100%;
+    float: left;
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    font-weight: bold;
+  }
+}
+.product-toolbar .product-sort { /* 排序選單 */ }
+@media (min-width: 992px) {
+  .product-toolbar .product-sort { /* LG XL XXL */
+    width: 100%;
+    height: 100%;
+    float: left;
+    display: flex;
+    justify-content: end;
+    align-items: center;
+    font-weight: bold;
+  }
+}
+@media (max-width: 991.98px) {
+  .product-toolbar .product-sort { /* MD 以下 */
+    width: 50%;
+    height: 100%;
+    float: left;
+    display: flex;
+    justify-content: end;
+    align-items: center;
+    font-weight: bold;
+  }
+}
+
+/* 商品 */
+@media (min-width: 991.98px) {
+  .product-area { /* LG XL XXL */
+    width: 100%;
+    height: calc(100% - 60px);
+    overflow-y: auto;
+  }
+}
+@media (max-width: 991.98px) {
+  .product-area { /* MD以下 */
+    width: calc(100% + 30px);
+    margin-left: -15px;
+    height: calc(100% - 60px);
+    overflow-y: auto;
+  }
+}
+.product-area .product-item { /* 商品 */
+  float: left;
+}
+@media (min-width: 991.98px) {
+  .product-area .product-item { /* LG XL XXL */
+    width: calc((100% - 90px) / 3);
+    margin: 0px 0px 40px 30px;
+  }
+}
+@media (max-width: 991.98px) {
+  .product-area .product-item { /* MD以下 */
+    width: calc(50% - 30px);
+    float: left;
+    margin: 0px 15px 40px 15px;
+  }
+}
+.product-area .product-item img { /* 商品圖片 */
+  -o-object-fit: cover;
+     object-fit: cover;
+  width: 100%;
+  margin-bottom: 10px;
+}
+@media (min-width: 1660px) {
+  .product-area .product-item img { /* XXL */
+    height: 380px;
+  }
+}
+@media (max-width: 1399.98px) {
+  .product-area .product-item img { /* LG XL */
+    height: 250px;
+  }
+}
+@media (max-width: 991.98px) {
+  .product-area .product-item img { /* MD */
+    height: 250px;
+  }
+}
+.product-area .product-item .product-name { /* 商品名稱 */
+  float: left;
+  font-weight: bold;
+}
+.product-area .product-item .product-price { /* 商品價格 */
+  float: right;
+  font-weight: bold;
+}/*# sourceMappingURL=shop.css.map */
