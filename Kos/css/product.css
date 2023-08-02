@@ -203,13 +203,19 @@ body {
 .product-content {
     width: 100%;
     height: calc(100vh - 460px);
-    overflow: auto;
 }
 
 /* 商品頁籤群組 */
 .product-detail {
     width: 100%;
     height: 80px;
+}
+
+/* 商品頁籤內容 */
+.tab-content {
+    overflow: auto;
+    width: 100%;
+    height: calc(100% - 100px);
 }
 
 /* 商品頁籤 */
@@ -380,8 +386,6 @@ body {
     }
 }
 
-
-
 /* MD以上 */
 @media (min-width: 992px) {
     /* 提示區塊 */
@@ -398,10 +402,37 @@ body {
         width: 100vw;
         height: 100vh;
         z-index: 20;
+        animation: .2s ease 0s normal forwards 1 fadeout;
+    }
+
+    /* 加入購物車提示底色.active */
+    .hint-bg.active {
+        background-color: rgba(0, 0, 0, 0.5);
+        position: fixed;
+        top: 0px;
+        left: 0px;
+        width: 100vw;
+        height: 100vh;
+        z-index: 20;
+        animation: .2s ease 0s normal forwards 1 fadein;
     }
 
     /* 購物車提示 */
     .cart-hint {
+        background-color: #F2F2F2;
+        position: fixed;
+        top: -255px;
+        left: calc((100vw - 500px) / 2);
+        width: 500px;
+        min-height: 250px;
+        z-index: 25;
+        padding: 20px;
+        box-sizing: border-box;
+        animation: .2s ease-in-out 0s normal forwards 1 hidehint;
+    }
+
+    /* 購物車提示.active */
+    .cart-hint.active {
         background-color: #F2F2F2;
         position: fixed;
         top: 0px;
@@ -411,8 +442,8 @@ body {
         z-index: 25;
         padding: 20px;
         box-sizing: border-box;
+        animation: .2s ease-in 0s normal forwards 1 showhint;
     }
-
     
 }
 
@@ -433,10 +464,37 @@ body {
         width: 100vw;
         height: 100vh;
         z-index: 20;
+        animation: .2s ease 0s normal forwards 1 fadeout;
+    }
+
+    /* 加入購物車提示底色.active */
+    .hint-bg.active {
+        background-color: rgba(0, 0, 0, 0.5);
+        position: fixed;
+        top: 0px;
+        left: 0px;
+        width: 100vw;
+        height: 100vh;
+        z-index: 20;
+        animation: .2s ease 0s normal forwards 1 fadein;
     }
 
     /* 購物車提示 */
     .cart-hint {
+        background-color: #F2F2F2;
+        position: fixed;
+        top: -255px;
+        left: 0px;
+        width: 100%;
+        min-height: 250px;
+        z-index: 25;
+        padding: 20px;
+        box-sizing: border-box;
+        animation: .3s ease-in-out 0s normal forwards 1 hidehint;
+    }
+
+    /* 購物車提示.active */
+    .cart-hint.active {
         background-color: #F2F2F2;
         position: fixed;
         top: 0px;
@@ -446,6 +504,7 @@ body {
         z-index: 25;
         padding: 20px;
         box-sizing: border-box;
+        animation: .3s ease-in 0s normal forwards 1 showhint;
     }
 }
 
@@ -527,14 +586,26 @@ body {
     padding: 0px 0px 15px 0px;
 }
 
-/* 淡入效果 */
-@keyframes fadein{
-    0% { opacity: 0; }
-    100% { opacity: 1; }
+/* 購物車提示出現 */
+@keyframes showhint{
+    0% { top: -255px; }
+    100% { top: 0px; }
 }
 
-/* 淡入效果 */
-@-webkit-keyframes fadein{
-    0% { opacity: 0; }
-    100% { opacity: 1; }
+/* 購物車提示出現 */
+@-webkit-keyframes showhint{
+    0% { top: -255px; }
+    100% { top: 0px; }
+}
+
+/* 購物車提示消失 */
+@keyframes hidehint{
+    0% { top: 0px; }
+    100% { top: -255px; }
+}
+
+/* 購物車提示消失 */
+@-webkit-keyframes hidehint{
+    0% { top: 0px; }
+    100% { top: -255px; }
 }

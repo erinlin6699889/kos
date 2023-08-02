@@ -139,12 +139,13 @@ function AddItemToCart(id) {
         </tr>
     `);
     
-
     // 更新購物車資訊
     UpdateCartData();
 
     // 顯示提示視窗
     $('#hint-panel').show();
+    $('#hint-bg').addClass('active');
+    $('#cart-hint').addClass('active');
 
     // 重製商品數字
     $('#number').text(1);
@@ -152,5 +153,9 @@ function AddItemToCart(id) {
 
 // 顯示商品
 function HideCartHint() {
-    $('#hint-panel').hide();
+    $('#hint-bg').removeClass('active');
+    $('#cart-hint').removeClass('active');
+    setTimeout(() => {
+        $('#hint-panel').hide();
+    }, 500);
 }

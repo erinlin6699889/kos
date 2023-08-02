@@ -19,8 +19,12 @@ function HideBurgerMenu() {
 
 // 開啟購物車
 function ShowCartDetail() {
-    $('#hint-panel').hide();
-    $('#cart-panel').show();
+    $('#hint-bg').removeClass('active');
+    $('#cart-hint').removeClass('active');
+    setTimeout(() => {
+        $('#hint-panel').hide();
+        $('#cart-panel').show();
+    }, 200);
 }
 
 // 關閉購物車

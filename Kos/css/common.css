@@ -282,18 +282,6 @@ a:hover {
 	width: 0px;
 }*/
 
-/* 淡入效果 */
-@keyframes fadein{
-    0% { opacity: 0; }
-    100% { opacity: 1; }
-}
-
-/* 淡入效果 */
-@-webkit-keyframes fadein{
-    0% { opacity: 0; }
-    100% { opacity: 1; }
-}
-
 /* 漢堡選單 */
 .burger-menu {
 	position: fixed;
@@ -729,3 +717,31 @@ a:hover {
 }
 
 /*#endregion Cart  */
+
+/*#region Animation */
+
+/* 淡入效果 */
+@keyframes fadein{
+    0% { opacity: 0; }
+    100% { opacity: 1; }
+}
+
+/* 淡入效果 */
+@-webkit-keyframes fadein{
+    0% { opacity: 0; }
+    100% { opacity: 1; }
+}
+
+/* 淡出效果 */
+@keyframes fadeout{
+    0% { opacity: 1; }
+    100% { opacity: 0; }
+}
+
+/* 淡出效果 */
+@-webkit-keyframes fadeout{
+    0% { opacity: 1; }
+    100% { opacity: 0; }
+}
+
+/*#endregion Animation  */
