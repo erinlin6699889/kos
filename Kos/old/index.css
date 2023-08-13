@@ -1,0 +1,659 @@
+/*#region Slider Style */
+
+/* 首頁跑馬燈 */
+.slider {
+	height: 100vh;
+	width: 100%;
+	background-color: #d2ccc6;
+	z-index: 1;
+	display: flex;
+	justify-content: center;
+}
+
+/* 首頁跑馬燈 外層 */
+.slider .wrapper {
+	height: 100%;
+	background-image: url('../asset/flower-01.png');
+	background-repeat: no-repeat;
+	background-size: auto 85vh;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+/* XXL XL LG MS SM */
+@media (min-width: 576px) {
+	/* 首頁跑馬燈 外層 */
+	.slider .wrapper {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+	}
+}
+
+/* XS */
+@media (max-width: 575.98px) {
+	/* 首頁跑馬燈 外層 */
+	.slider .wrapper {
+		display: flex;
+		justify-content: center;
+		align-items: start;
+	}
+}
+
+/* XXL XL LG */
+@media (min-width: 992px) {
+	/* 首頁跑馬燈 外層 */
+	.slider .wrapper {
+		background-size: auto 85vh;
+		background-position: right 15% bottom;
+	}
+}
+
+/* MD */
+@media (max-width: 991.98px) and (min-width: 768px) {
+	/* 首頁跑馬燈 外層 */
+	.slider .wrapper {
+		background-size: auto 85vh;
+		background-position: right 20px bottom 0px;
+	}
+}
+
+/* SM XS */
+@media (max-width: 767.98px) {
+	/* 首頁跑馬燈 包覆 */
+	.slider .wrapper {
+		width: 100%;
+		background-size: auto 70vh;
+		background-position: right -40px bottom;
+	}
+}
+
+/* 首頁跑馬燈 文字區塊 */
+.slider .slider-title {
+	text-align: center;
+}
+
+/* 首頁跑馬燈 h2標題 */
+.slider .slider-title h2 {
+	font-size: 2rem;
+	line-height: 2.5rem;
+	color: var(--text-color);
+}
+
+/* 首頁跑馬燈 h3標題 */
+.slider .slider-title h3 {
+	font-size: 1.7rem;
+	margin-bottom: 0.8rem;
+}
+
+/* 首頁跑馬燈 a */
+.slider .slider-title a {
+	text-decoration: none;
+	font-weight: bold;
+	padding-bottom: 0.6rem;
+	border-bottom: 3.5px solid #000;
+}
+
+/* XXL XL LG MD SM */
+@media (min-width: 576px) {
+	/* 首頁跑馬燈 h2標題 */
+	.slider .slider-title h2 {
+		margin-top: 0px;
+	}
+
+	/* 首頁跑馬燈 h3標題 */
+	.slider .slider-title h3 {
+		margin-top: 0px;
+	}
+}
+
+/* XS */
+@media (max-width: 575.98px) {
+	/* 首頁跑馬燈 h2標題 */
+	.slider .slider-title h2 {
+		margin-top:  85px;
+	}
+
+	/* 首頁跑馬燈 h3標題 */
+	.slider .slider-title h3 {
+		margin-top: 245px;
+	}
+}
+
+/*#endregion Slider Style  */
+
+/*#region Content Style - About  */
+
+/* 網頁內容 */
+.content {
+	width: 100%;
+	display: flex;
+	justify-content: center;
+}
+
+/* 網頁內容 子區塊 */
+.content .areas {
+	margin: 8rem 0rem;
+	width: 100%;
+}
+
+.content .areas h3:first-child {
+	margin-bottom: 40px;
+	font-size: 1.9rem;
+}
+
+/* 網站形象介紹 */
+.content .content-about {
+	text-align: center;
+	line-height: 34px;
+}
+
+/* 網站形象介紹 底部水平線 */
+.content .about-hr {
+	margin-top: 30px;
+	border: 2px solid var(--text-color);
+	width: 250px;
+}
+
+/*#endregion Content Style - About  */
+
+/*#region Content Style - Arrivals  */
+
+/* 螢幕寬度1920px以上 */
+@media (min-width: 1920px) {
+	/* 取消橫向卷軸 */
+	.content .card-scroll {
+		height: auto;
+		width: 100%;
+		overflow-x: hidden;
+		overflow-y: hidden;
+	}
+
+	/* 捲動區塊 */
+	.content .card-area {
+		height: auto;
+		width: 100%;
+	}
+
+	/* 商品 */
+	.card-item {
+		width: calc((100% - 120px) / 4);
+		float: left;
+		margin: 0px 20px;
+		aspect-ratio: 1 / 1;
+	}
+
+	/* 取消第一個商品的左外距 */
+	.card-item:first-child {
+		margin-left: 0px;
+	}
+
+	/* 取消最後一個商品的右外距 */
+	.card-item:last-child {
+		margin-right: 0px;
+	}
+
+	/* 商品圖片 */
+	.card-item img {
+		object-fit: cover;
+		width: 100%;
+		height: 100%;
+		margin-bottom: 10px;
+	}
+
+}
+
+/* 螢幕寬度1920px以下 */
+@media (max-width: 1919.98px) {
+	/* 橫向卷軸 */
+	.content .card-scroll {
+		height: 350px;
+		width: 100%;
+		overflow-x: auto;
+		overflow-y: hidden;
+	}
+
+	/* 橫向卷軸-底 */
+	.card-scroll::-webkit-scrollbar {
+		width: 5px;
+		height: 10px;
+		background-color: var(--webkit-scrollbar-color);
+	}
+
+	/* 橫向卷軸*-軸 */
+	.card-scroll::-webkit-scrollbar-thumb {
+		background: var(--webkit-scrollbar-thumb-color);
+	}
+
+	/* 捲動區塊 */
+	.content .card-area {
+		width: 1250px;
+		height: 350px;
+	}
+
+	/* 商品 */
+	.card-item {
+		width: 280px;
+		float: left;
+		margin: 0px 20px;
+	}
+
+	/* 取消第一個商品的左外距 */
+	.card-item:first-child {
+		margin-left: 0px;
+	}
+
+	/* 取消最後一個商品的右外距 */
+	.card-item:last-child {
+		margin-right: 0px;
+	}
+
+	/* 商品圖片 */
+	.card-item img {
+		object-fit: cover;
+		width: 280px;
+		height: 280px;
+		margin-bottom: 10px;
+	}
+}
+
+/* 商品名稱 */
+.card-item .item-title .item-name {
+	float: left;
+	font-weight: bold;
+}
+
+/* 商品價格 */
+.card-item .item-title .item-price {
+	float: right;
+	font-weight: bold;
+}
+
+/*#endregion Content Style - Arrivals  */
+
+/*#region Content Style - Story  */
+
+/* 品牌故事 */
+.content-story {
+	height: 350px;
+}
+
+/* 品牌故事圖片區塊 */
+.story-image {
+	position: relative;
+	float: left;
+	height: 100%;
+}
+
+/* 品牌故事描述 */
+.story-description {
+	height: 100%;
+	float: left;
+	display: flex;
+	justify-content: start;
+	align-items: center;
+	padding-left: 60px;
+}
+
+/* 品牌故事文字區塊 */
+.story-description > div {
+	width: 100%;
+}
+
+/* 品牌故事圖片 */
+.story-image img {
+	width: 100%;
+	height: 350px;
+	object-fit: cover;
+	object-position: left bottom;
+}
+
+@media (min-width: 1920.01px) {
+	/* 品牌故事 */
+	.content-story {
+		height: 450px;
+	}
+
+	/* 品牌故事圖片區塊 */
+	.story-image {
+		width: 55%;
+	}
+
+	/* 品牌故事描述 */
+	.story-description {
+		width: calc(45% - 80px);
+		padding-left: 80px;
+	}
+
+	/* 品牌故事文字區塊 */
+	.story-image > div {
+		display: none;
+	}
+
+	/* 品牌故事圖片 */
+	.story-image img {
+		width: 100%;
+		height: 450px;
+		object-fit: cover;
+		object-position: left center;
+	}
+}
+
+/* XXL */
+@media (max-width: 1920px) and (min-width: 1400px){
+	/* 品牌故事 */
+	.content-story {
+		height: 350px;
+	}
+
+	/* 品牌故事圖片區塊 */
+	.story-image {
+		width: 50%;
+	}
+
+	/* 品牌故事描述 */
+	.story-description {
+		width: calc(50% - 80px);
+		padding-left: 80px;
+	}
+
+	/* 品牌故事文字區塊 */
+	.story-image > div {
+		display: none;
+	}
+
+	/* 品牌故事圖片 */
+	.story-image img {
+		width: 100%;
+		height: 350px;
+		object-fit: cover;
+		object-position: left bottom;
+	}
+}
+
+@media (max-width: 1399.98px) and (min-width: 768px) {
+	/* 品牌故事圖片區塊 */
+	.story-image {
+		width: 55%;
+	}
+
+	/* 品牌故事描述 */
+	.story-description {
+		width: calc(45% - 60px);
+	}
+
+	/* 品牌故事文字區塊 */
+	.story-image > div {
+		display: none;
+	}
+}
+
+@media (max-width: 767.98px) {
+	/* 品牌故事圖片區塊 */
+	.story-image {
+		width: 100%;
+	}
+
+	/* 品牌故事描述 */
+	.story-description {
+		display: none;
+	}
+
+	/* 品牌故事文字區塊 */
+	.story-image > div {
+		position: absolute;
+		top: 0px;
+		left: 0px;
+		width: 100%;
+		height: 100%;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+	}
+}
+
+/* 超連結底部裝飾線 */
+a.link-border {
+	text-decoration: none;
+	font-weight: bold;
+	padding-bottom: 0.5rem;
+	border-bottom: 4.5px solid #000;
+	margin-top: 60px;
+}
+
+/*#endregion Content Style - Story  */
+
+/*#region Content Style - Collections  */
+
+/* 作品區塊 */
+.collections {
+	position: relative;
+}
+
+/* XXL XL LG MD SM */
+@media (min-width: 576px){
+
+	/* 區域卷軸(不顯示) */
+	.collections-scroll {
+		width: 100%;
+		height: 400px;
+	}
+
+	/* 作品區塊 */
+	.collections-area {
+		height: 100%;
+		width: 100%;
+	}
+
+	/* 左側最大作品區塊 */
+	.collections-scroll > .collections-area > .collections {
+		position: relative;
+		height: 100%;
+		width: 50%;
+		margin-right: 30px;
+		float: left;
+	}
+	
+	/* 作品圖片 */
+	.collections img {
+		object-fit: cover;
+		object-position: center center;
+		width: 100%;
+		height: 100%;
+	}
+	
+	/* 作品類型名稱 */
+	.collections span {
+		position: absolute;
+		left: 35px;
+		bottom: 35px;
+		font-weight: bold;
+	}
+	
+	/* 上下排列包覆容器 */
+	.vertical-wrapper {
+		height: 100%;
+		width: calc(50% - 30px);
+		float: left;
+	}
+	
+	/* 作品區塊高度 */
+	.vertical-wrapper > .collections {
+		height: calc(50% - 15px);
+	}
+	
+	/* 第一個上下排列項目下外距 */
+	.vertical-wrapper > .collections:first-child {
+		margin-bottom: 30px;
+	}
+}
+
+/* XS */
+@media (max-width: 575.98px){
+
+	/* 區域卷軸(超出即顯示) */
+	.collections-scroll {
+		width: 100%;
+		height: 400px;
+		overflow-x: auto;
+		overflow-y: hidden;
+	}
+
+	/* 卷軸樣式-底 */
+	.collections-scroll::-webkit-scrollbar {
+		width: 5px;
+		height: 10px;
+		background-color: var(--webkit-scrollbar-color);
+	}
+	
+	/* 卷軸樣式-軸 */
+	.collections-scroll::-webkit-scrollbar-thumb {
+		background: var(--webkit-scrollbar-thumb-color);
+	}
+
+	/* 作品區塊 */
+	.collections-area {
+		height: 400px;
+		width: 1170px;
+	}
+
+	/* 左側最大作品區塊 */
+	.collections-scroll > .collections-area > .collections {
+		position: relative;
+		height: 100%;
+		width: 350px;
+		margin-right: 30px;
+		float: left;
+	}
+	
+	/* 作品圖片 */
+	.collections img {
+		object-fit: cover;
+		object-position: center center;
+		width: 100%;
+		height: 330px;
+	}
+	
+	/* 作品類型名稱 */
+	.collections span {
+		position: absolute;
+		left: 0px;
+		bottom: 28px;
+		font-weight: bold;
+	}
+	
+	/* 上下排列包覆容器(取消上下排列改為左右排列) */
+	.vertical-wrapper {
+		height: 100%;
+		width: auto;
+		float: left;
+	}
+	
+	/* 作品區塊高度 */
+	.vertical-wrapper > .collections {
+		height: 100%;
+		width: 380px;
+		float: left;
+	}
+	
+	/* 第一個上下排列項目右外距 */
+	.vertical-wrapper > .collections:first-child {
+		margin-bottom: 0px;
+		margin-right: 30px;
+	}
+}
+
+/*#endregion Content Style - Collections  */
+
+/*#region Footer Style  */
+
+/* 頁尾區塊 */
+.footer {
+	padding: 0rem 0px 3rem 0px;
+	display: flex;
+	justify-content: center;
+}
+
+/* 頁尾區塊 水平線 */
+.footer hr {
+	border-top: 4.5px solid #000;
+	margin-bottom: 3rem;
+}
+
+@media (min-width: 992px){
+	/* 頁尾區塊 選單 */
+	.footer ul {
+		list-style: none;
+		padding-left: 0px;
+		width: auto;
+		float: left;
+		margin-right: 200px;
+	}
+}
+
+@media (max-width: 991.98px) {
+	/* 頁尾區塊 選單 */
+	.footer ul {
+		list-style: none;
+		padding-left: 0px;
+		width: auto;
+		float: left;
+		margin-right: 100px;
+	}
+}
+
+/* 頁尾區塊 取消最後一個ul右外距 */
+.footer ul:last-child {
+	margin-right: 0px;
+}
+
+/* 頁尾區塊 選單標題 */
+.footer ul li:first-child h3 {
+	margin-top: 0px;
+}
+
+/* 頁尾區塊 選單項目 */
+.footer ul li {
+	margin: 10px 0px;
+}
+
+/* 手機版頁尾 */
+.footer-mobile {
+	text-align: center;
+}
+
+/* 手機版頁尾 超連結 */
+.footer-mobile a {
+	width: 30px;
+	height: 30px;
+	margin: 0px 20px;
+}
+
+/* XS以上 */
+@media (min-width: 576px) {
+	/* 電腦版頁尾 */
+	.footer-pc {
+		display: block;
+	}
+
+	/* 手機版頁尾 */
+	.footer-mobile {
+		display: none;
+	}
+}
+
+/* XS */
+@media (max-width: 575.98px) {
+	/* 電腦版頁尾 */
+	.footer-pc {
+		display: none;
+	}
+
+	/* 手機版頁尾 */
+	.footer-mobile {
+		display: block;
+	}
+}
+
+/*#endregion Footer Style  */
