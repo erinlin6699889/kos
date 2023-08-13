@@ -5,7 +5,6 @@ $xl: 1400px;
 $lg: 992px;
 $md: 768px;
 $sm: 576px;
-$xs: 0px;
 
 /* 全域變數 顏色 */
 $backgroundColor: #f2f2f2;  // 背景顏色
@@ -21,9 +20,24 @@ $webkitScrollbarThumbColor: #000;  // 卷軸拖條顏色
     align-items: $align;
 }
 
-/* fixed 絕對定位 */
+/* fixed 定位 */
 @mixin fixedPosition($topOrBottom, $param1, $leftOrRight, $param2) {
     position: fixed;
+    @if $topOrBottom == top {
+        top: $param1;
+    } @else if $topOrBottom == bottom {
+        bottom: $param1;
+    }
+    @if $leftOrRight == left {
+        left: $param2;
+    } @else if $leftOrRight == right {
+        right: $param2;
+    }
+}
+
+/* absolute 定位 */
+@mixin absolutePosition($topOrBottom, $param1, $leftOrRight, $param2) {
+    position: absolute;
     @if $topOrBottom == top {
         top: $param1;
     } @else if $topOrBottom == bottom {
@@ -136,9 +150,6 @@ a {
         @media (min-width: $lg) {
             width: 33%;
         }
-        @media (min-width: $xs){
-            display: none;
-        }
     }
     ul:first-child {
         text-align: left;
@@ -176,6 +187,7 @@ a {
     }
     .topbar-logo {
         @include flex(center, center);
+        width: 100%;
         height: 100%;
         float: left;
         img {
@@ -187,18 +199,13 @@ a {
         @media (min-width: $lg) {
             width: 30%;
         }
-        @media (min-width: $xs){
-            width: 100%;
-        }
     }
 }
 
 /* 漢堡選單 */
 .burger-menu {
-	position: fixed;
+    @include fixedPosition(top, 0px, left, 0px);
 	z-index: 1000;
-	top: 0px;
-	left: 0px;
 	background-color: $backgroundColor;
 	font-weight: bold;
 	width: 100%;
@@ -207,14 +214,14 @@ a {
 	overflow: hidden;
 	padding: 20px;
 	transition: .2s;
-    .active {  /* 漢堡選單.active */
+    .active {
         display: block;
     }
-    .menu-times {  /* 關閉按鈕 */
+    .menu-times {
         width: 100%;
         text-align: right;
     }
-    .menu-search {  /* 查詢輸入框 */
+    .menu-search {
         width: 100%;
         background-color: $backgroundColor;
         border: none;
@@ -222,30 +229,29 @@ a {
         padding: 10px 0px;
         font-size: 1.3rem;
     }
-    .menu-search:focus {  /* 取消查詢輸入框在被focus時會出現的黑框線 */
+    .menu-search:focus {
         outline: none;
     }
-    ul {  /* 選單區塊 ul */
+    ul {
         list-style: none;
         padding-left: 0px;
         margin-top: 30px;
-        li {  /* li */
-            a {  /* 超連結 */
+        li {
+            a {
                 display: block;
                 width: 100%;
                 padding: 15px 0px;
             }
-            a:hover {  /* 超連結:hover */
+            a:hover {
                 display: block;
                 width: 100%;
             }
         }
-        li.has-sub {  /* li(有子項目) */
-            a:after {  /* 超連結:after */
+        li.has-sub {
+            a:after {
+                @include absolutePosition(top, 0px, right, 0px);
                 content: "";
                 background-image: url('../asset/chevron-right.png');
-                position: absolute;
-                right: 56px;
                 margin-top: 3px;
                 width: 25px;
                 height: 25px;
@@ -278,141 +284,88 @@ a {
 	font-weight: bold;
 }
 
+/* 購物車選單 */
+@mixin cartPanel($width, $height, $paddingY, $paddingX) {
+    @include fixedPosition(top, 0px, right, 0px);
+        display: none;
+        width: $width;
+        height: $height;
+        padding: $paddingY $paddingX;
+        box-sizing: border-box;
+        z-index: 20;
+        background-color: #f2f2f2;
+        border-left: 1px solid #d1d0d0;
+}
+
 /* 購物車介面 */
 #cart-panel {
-    .cart-count {  /* 數量區塊 */
+    .cart-count {
         width: 100%;
         float: left;
         font-size: 1.2rem;
         padding-top: 5px;
-        div {  /* div */
+        div {
             float: left;
         }
     }
-    .cart-add {  /* 加入購物車區塊 */
+    .cart-add {
         width: 50%;
         float: right;
         text-align: right;
         white-space: nowrap;
     }
-    .plus-icon {  /* 新增icon圖示 */
+    .plus-icon {
         width: 30px;
         height: 30px;
     }
-    .minus-icon {  /* 減少icon圖示 */
+    .minus-icon {
         width: 30px;
         height: 30px;
     }
-    .number-label {  /* 數字顯示 div */
+    .number-label {
         text-align: center;
         width: 55px;
     }
-    @media (min-width: $xxl) {  /* XXL以上 */
-        display: none;
-        position: fixed;
-        top: 0px;
-        right: 0px;
-        width: 42vw;
-        height: 100vh;
-        padding: 20px 80px;
-        box-sizing: border-box;
-        z-index: 20;
-        background-color: #f2f2f2;
-        border-left: 1px solid #d1d0d0;
+    @include cartPanel(100vw, 100vh, 20px, 20px);
+    @media (min-width: $xxl) {
+        @include cartPanel(42vw, 100vh, 20px, 80px);
     }
-    @media (max-width: 1659.98px) {  /* XXL以下 */
-        display: none;
-		position: fixed;
-		top: 0px;
-		right: 0px;
-		width: 42vw;
-		height: 100vh;
-		padding: 20px 60px;
-		box-sizing: border-box;
-		z-index: 20;
-		background-color: #f2f2f2;
-		border-left: 1px solid #d1d0d0;
+    @media (min-width: $xl) {
+        @include cartPanel(42vw, 100vh, 20px, 60px);
     }
-    @media (max-width: 1399.98px) {  /* LG以下 */
-        display: none;
-		position: fixed;
-		top: 0px;
-		right: 0px;
-		width: 55vw;
-		height: 100vh;
-		padding: 20px 60px;
-		box-sizing: border-box;
-		z-index: 20;
-		background-color: #f2f2f2;
-		border-left: 1px solid #d1d0d0;
-    }
-    @media (max-width: 991.98px) {  /* MD以下 */
-        display: none;
-		position: fixed;
-		top: 0px;
-		left: 0px;
-		width: 100vw;
-		height: 100vh;
-		padding: 20px;
-		box-sizing: border-box;
-		z-index: 20;
-		background-color: #f2f2f2;
+    @media (min-width: 992px) {
+        @include cartPanel(55vw, 100vh, 20px, 60px);
     }
 }
 
 /* 購物車標題 */
 .cart-head {
-    @media (max-width: 1659.98px) {  /* XXL以下 */
-        width: 100%;
+    width: 100%;
+    height: 80px;
+    @media (min-width: $xl) {
 		height: 120px;
     }
-    @media (max-width: 1399.98px) {  /* LG以下 */
-        width: 100%;
+    @media (min-width: $lg) {
 		height: 120px;
-    }
-    @media (max-width: 991.98px) {  /* MD以下 */
-        width: 100%;
-		height: 80px;
     }
 }
 
 /* 購物車標題 */
 .cart-title {
-    @media (min-width: $xxl) {  /* XXL以上 */
-        font-size: 1.6rem;
-        padding: 40px 0px;
-    }
-    @media (max-width: 1659.98px) {  /* XXL以下 */
+    font-size: 1.5rem;
+	padding: 20px 0px;
+    @media (min-width: $lg) {
         font-size: 1.6rem;
 		padding: 40px 0px;
-    }
-    @media (max-width: 1399.98px) {  /* LG以下 */
-        font-size: 1.6rem;
-		padding: 40px 0px;
-    }
-    @media (max-width: 991.98px) {  /* MD以下 */
-        font-size: 1.5rem;
-		padding: 20px 0px;
     }
 }
 
 /* 購物車內容 */
 .cart-body {
-    @media (min-width: $xxl) {  /* XXL以上 */
-        width: 100%;
-        height: calc(100% - 210px);
-    }
-    @media (max-width: 1659.98px) {  /* XXL以下 */
-        width: 100%;
+    width: 100%;
+	height: calc(100% - 160px);
+    @media (min-width: $lg) {
 		height: calc(100% - 210px);
-    }
-    @media (max-width: 1399.98px) {  /* LG以下 */
-        width: 100%;
-		height: calc(100% - 210px);
-    }
-    @media (max-width: 991.98px) {  /* MD以下 */
-        width: 100%;
-		height: calc(100% - 160px);
     }
 }
 
@@ -430,65 +383,58 @@ a {
 /* 購物車表格 */
 .cart-table {
 	width: 100%;
-    > tbody > tr > td {  /* td */
+    > tbody > tr > td {
         padding: 20px 0px;
     }
-    > tbody > tr:first-child > td {  /* tr:first-child td */
+    > tbody > tr:first-child > td {
         border-top: none;
     }
 }
 
-/* 購物車 圖片 */
-.cart-column1 {
-	float: left;
-	width: 100px;
-}
-
-/* 購物車 品名數量 */
-.cart-column2 {
-	float: left;
-	width: calc(100% - 180px);
-	box-sizing: border-box;
-	padding: 0px 30px;
-}
-
-/* 購物車 價格刪除 */
-.cart-column3 {
-	float: left;
-	width: 80px;
-	text-align: right;
+/* 購物車每列內容 */
+.cart-column {
+    /* 購物車 圖片 */
+    &1 {
+        float: left;
+	    width: 100px;
+    }
+	/* 購物車 品名數量 */
+    &2 {
+        float: left;
+        width: calc(100% - 180px);
+        box-sizing: border-box;
+        padding: 0px 30px;
+    }
+    /* 購物車 價格刪除 */
+    &3 {
+        float: left;
+        width: 80px;
+        text-align: right;
+    }
 }
 
 /* 購物車圖片大小 */
 .cart-img-cover {
 	width: 100px;
 	height: 100px;
-    img {  /* 購物車圖片 */
+    img {
         object-fit: cover;
         width: 100%;
         height: 100%;
     }
 }
 
-/* 購物車商品名稱 */
-.cart-name {
-	width: 100%;
-	height: 60px;
-}
-
-/* 購物車商品價格 */
-.cart-price {
+/* 購物車商品名稱、價格 */
+.cart-name, .cart-price {
 	width: 100%;
 	height: 60px;
 }
 
 /* 購物車無商品 */
 #cart-no-item {
+    @include flex(center, center);
 	width: 100%;
 	height: 100%;
-	display: flex;
-	justify-content: center;
-	align-items: center;
 }
 
 /* 購物車有商品 */
@@ -519,11 +465,9 @@ a {
 
 /* 購物車內容總和 */
 .cart-content-total {
+    @include flex(start, center);
 	height: 50px;
 	width: 100%;
-	display: flex;
-	justify-content: start;
-	align-items: center;
 	border-top: 3px solid #000;
 }
 
@@ -542,12 +486,10 @@ a {
 
 /* 購物車底部 */
 .cart-footer {
+    @include flex(end, center);
 	width: 100%;
 	height: 70px;
-	display: flex;
-	justify-content: end;
-	align-items: center;
-    a {  /* 超連結 */
+    a {
         font-weight: bold;
         font-size: 1.5rem;
         border-bottom: 4px solid #000;

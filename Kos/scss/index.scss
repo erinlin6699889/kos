@@ -1,65 +1,55 @@
 @import 'common';
 
+/* 跑馬燈圖片位置 */
+@mixin sliderImg($bgSize, $bgPosition) {
+    background-size: $bgSize;
+    background-position: $bgPosition;
+}
+
 /* 首頁跑馬燈 */
 .slider {
+    @include flex(center);
 	height: 100vh;
 	width: 100%;
 	background-color: #d2ccc6;
 	z-index: 1;
-	display: flex;
-	justify-content: center;
-    .wrapper {  /* 首頁跑馬燈 外層 */
+    .wrapper {
+        @include flex(center, start);
+        @include sliderImg(auto 70vh, right -40px bottom);
+        width: 100%;
         height: 100%;
         background-image: url('../asset/flower-01.png');
         background-repeat: no-repeat;
-        @media (min-width: 576px) {  /* XXL XL LG MS SM */
-            display: flex;
-            justify-content: center;
-            align-items: center;
+        @media (min-width: $lg) {
+            @include sliderImg(auto 85vh, right 15% bottom);
         }
-        @media (max-width: 575.98px) {  /* XS */
-            display: flex;
-            justify-content: center;
-            align-items: start;
+        @media (min-width: $md) {
+            @include sliderImg(auto 85vh, right 20px bottom 0px);
         }
-        @media (min-width: 992px) {  /* XXL XL LG */
-            background-size: auto 85vh;
-		    background-position: right 15% bottom;
-        }
-        @media (max-width: 991.98px) and (min-width: 768px) {  /* MD */
-            background-size: auto 85vh;
-		    background-position: right 20px bottom 0px;
-        }
-        @media (max-width: 767.98px) {  /* SM XS */
-            width: 100%;
-		    background-size: auto 70vh;
-		    background-position: right -40px bottom;
+        @media (min-width: $sm) {
+            @include flex(center, center);
         }
     }
-    .slider-title {  /* 文字區塊 */
+    .slider-title {
         text-align: center;
-        h2 {  /* h2標題 */
+        h2 {
             font-size: 2rem;
             line-height: 2.5rem;
-            color: var(--text-color);
-            @media (min-width: 576px) {  /* XXL XL LG MD SM */
+            margin-top: 85px;
+            color: $textColor;
+            @media (min-width: $sm) {
                 margin-top: 0px;
             }
-            @media (max-width: 575.98px) {  /* XS */
-                margin-top:  85px;
-            }
         }
-        h3 {  /* h3標題 */
+        h3 {
             font-size: 1.7rem;
             margin-bottom: 0.8rem;
-            @media (min-width: 576px) {  /* XXL XL LG MD SM */
+            margin-top: 245px;
+            @media (min-width: $sm) {
                 margin-top: 0px;
             }
-            @media (max-width: 575.98px) {  /* XS */
-                margin-top: 245px;
-            }
         }
-        a {  /* a */
+        a {
             text-decoration: none;
             font-weight: bold;
             padding-bottom: 0.6rem;
@@ -70,98 +60,84 @@
 
 /* 網頁內容 */
 .content {
+    @include flex(center);
 	width: 100%;
-	display: flex;
-	justify-content: center;
-    .areas {  /* 子區塊 */
+    .areas {
         margin: 8rem 0rem;
         width: 100%;
-        h3:first-child {  /* h3 */
+        h3:first-child {
             margin-bottom: 40px;
             font-size: 1.9rem;
         }
     }
-    .content-about {  /* 網站形象介紹 */
+    .content-about {
         text-align: center;
         line-height: 34px;
     }
-    .about-hr {  /* 底部水平線 */
+    .about-hr {
         margin-top: 30px;
-        border: 2px solid var(--text-color);
+        border: 2px solid $textColor;
         width: 250px;
     }
-    .card-scroll {  /* 取消橫向卷軸 */
-        @media (min-width: 1920px) {  /* 螢幕寬度1920px以上 */
+    .card-scroll {
+        height: 350px;
+        width: 100%;
+        overflow-x: auto;
+        overflow-y: hidden;
+        @media (min-width: $xxxl) {
             height: auto;
-            width: 100%;
             overflow-x: hidden;
-            overflow-y: hidden;
-        }
-        @media (max-width: 1919.98px) {  /* 螢幕寬度1920px以下 */
-            height: 350px;
-            width: 100%;
-            overflow-x: auto;
-            overflow-y: hidden;
         }
 	}
     .card-area {  /* 捲動區塊 */
-        @media (min-width: 1920px) {  /* 螢幕寬度1920px以上 */
+        width: 1250px;
+        height: 350px;
+        @media (min-width: $xxxl) {
             height: auto;
             width: 100%;
         }
-        @media (max-width: 1919.98px) {  /* 螢幕寬度1920px以下 */
-            width: 1250px;
-		    height: 350px;
-        }
 	}
-	.card-scroll::-webkit-scrollbar {  /* 橫向卷軸-底 */
-        @media (max-width: 1919.98px) {  /* 螢幕寬度1920px以下 */
+	.card-scroll::-webkit-scrollbar {
+        @media (max-width: $xxxl) {
             width: 5px;
             height: 10px;
-            background-color: var(--webkit-scrollbar-color);
+            background-color: $webkitScrollbarColor;
         }
 	}
-	.card-scroll::-webkit-scrollbar-thumb {  /* 橫向卷軸*-軸 */
-        @media (max-width: 1919.98px) {  /* 螢幕寬度1920px以下 */
-		    background: var(--webkit-scrollbar-thumb-color);
+	.card-scroll::-webkit-scrollbar-thumb {
+        @media (max-width: $xxxl) {
+		    background: $webkitScrollbarThumbColor;
         }
 	}
 }
 
 /* 商品 */
 .card-item {
-    @media (min-width: 1920px) {  /* 螢幕寬度1920px以上 */
+    width: 280px;
+    float: left;
+    margin: 0px 20px;
+    @media (min-width: $xxxl) {
         width: calc((100% - 120px) / 4);
         float: left;
         margin: 0px 20px;
         aspect-ratio: 1 / 1;
     }
-    @media (max-width: 1919.98px) {  /* 螢幕寬度1920px以下 */
-        width: 280px;
-		float: left;
-		margin: 0px 20px;
-    }
-    /* 商品圖片 */
     img {
-        @media (min-width: 1920px) {  /* 螢幕寬度1920px以上 */
-            object-fit: cover;
+        object-fit: cover;
+        width: 280px;
+        height: 280px;
+        margin-bottom: 10px;
+        @media (min-width: $xxxl) {
             width: 100%;
             height: 100%;
-            margin-bottom: 10px;
-        }
-        @media (max-width: 1919.98px) {  /* 螢幕寬度1920px以下 */
-            object-fit: cover;
-            width: 280px;
-            height: 280px;
-            margin-bottom: 10px;
         }
     }
-    .item-title {  /* 商品標題 */
-        .item-name {  /* 商品名稱 */
+    .item-title {
+        .item-name {
             float: left;
             font-weight: bold;
         }
-        .item-price {  /* 商品價格 */
+        .item-price {
             float: right;
             font-weight: bold;
         }
@@ -170,32 +146,19 @@
 
 /* 取消第一個商品的左外距 */
 .card-item:first-child {
-    @media (min-width: 1920px) {  /* 螢幕寬度1920px以上 */
-        margin-left: 0px;
-    }
-    @media (max-width: 1919.98px) {  /* 螢幕寬度1920px以下 */
-        margin-left: 0px;
-    }
+    margin-left: 0px;
 }
 
 /* 取消最後一個商品的右外距 */
 .card-item:last-child {
-    @media (min-width: 1920px) {  /* 螢幕寬度1920px以上 */
-        margin-right: 0px;
-    }
-    @media (max-width: 1919.98px) {  /* 螢幕寬度1920px以下 */
-        margin-right: 0px;
-    }
+    margin-right: 0px;
 }
 
 /* 品牌故事 */
 .content-story {
 	height: 350px;
-    @media (min-width: 1920.01px) {  /* 螢幕寬度1920px以上 */
+    @media (min-width: $xxxl) {
         height: 450px;
-    }
-    @media (max-width: 1920px) and (min-width: 1400px){  /* XXL */
-        height: 350px;
     }
 }
 
@@ -203,77 +166,57 @@
 .story-image {
 	position: relative;
 	float: left;
+    width: 100%;
 	height: 100%;
-    @media (min-width: 1920.01px) {  /* 螢幕寬度1920px以上 */
+    @media (min-width: $xxxl) {
         width: 55%;
     }
-    @media (max-width: 1920px) and (min-width: 1400px){  /* XXL */
+    @media (min-width: $xl){
         width: 50%;
     }
-    @media (max-width: 1399.98px) and (min-width: 768px) {  /* SM以上 */
+    @media (min-width: $md) {
         width: 55%;
-    }
-    @media (max-width: 767.98px) {  /* SM以下 */
-        width: 100%;
     }
     img {  /* 品牌故事圖片 */
         width: 100%;
         height: 350px;
         object-fit: cover;
         object-position: left bottom;
-        @media (min-width: 1920.01px) {  /* 螢幕寬度1920px以上 */
-            width: 100%;
+        @media (min-width: $xxxl) {
             height: 450px;
-            object-fit: cover;
             object-position: left center;
         }
-        @media (max-width: 1920px) and (min-width: 1400px){  /* XXL */
-            width: 100%;
+        @media (min-width: $xl){
             height: 350px;
-            object-fit: cover;
             object-position: left bottom;
         }
     }
     > div {  /* 文字區塊 */
-        @media (min-width: 1920.01px) {  /* 螢幕寬度1920px以上 */
+        @include absolutePosition(top, 0px, left, 0px);
+        @include flex(center, center);
+        width: 100%;
+        height: 100%;
+        @media (min-width: $md) {
             display: none;
-        }
-        @media (max-width: 1920px) and (min-width: 1400px){  /* XXL */
-            display: none;
-        }
-        @media (max-width: 1399.98px) and (min-width: 768px) {  /* SM以上 */
-            display: none;
-        }
-        @media (max-width: 767.98px) {  /* SM以下 */
-            position: absolute;
-            top: 0px;
-            left: 0px;
-            width: 100%;
-            height: 100%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
         }
 	}
 }
 
 /* 品牌故事描述 */
 .story-description {
+    @include flex(start, center);
 	height: 100%;
 	float: left;
-	display: flex;
-	justify-content: start;
-	align-items: center;
 	padding-left: 60px;
-    @media (min-width: 1920.01px) {  /* 螢幕寬度1920px以上 */
+    @media (min-width: $xxxl) {
         width: calc(45% - 80px);
 		padding-left: 80px;
     }
-    @media (max-width: 1920px) and (min-width: 1400px){  /* XXL */
+    @media (min-width: $xl){
         width: calc(50% - 80px);
 		padding-left: 80px;
     }
-    @media (max-width: 767.98px) {  /* SM以下 */
+    @media (max-width: $md) {
         display: none;
     }
     > div {  /* 品牌故事文字區塊 */
@@ -293,63 +236,44 @@ a.link-border {
 /* 作品區塊 */
 .collections {
 	position: relative;
+    object-fit: cover;
+    object-position: center center;
+    width: 100%;
+    height: 330px;
     img {  /* 作品圖片 */
-        @media (min-width: 576px){  /* XXL XL LG MD SM */
-            object-fit: cover;
-            object-position: center center;
-            width: 100%;
+        @media (min-width: $sm){
             height: 100%;
-        }
-        @media (max-width: 575.98px){  /* XS */
-            object-fit: cover;
-            object-position: center center;
-            width: 100%;
-            height: 330px;
         }
     }
     span {  /* 作品類型名稱 */
-        @media (min-width: 576px){  /* XXL XL LG MD SM */
-            position: absolute;
+        position: absolute;
+        font-weight: bold;
+        left: 0px;
+        bottom: 28px;
+        @media (min-width: $sm){
             left: 35px;
             bottom: 35px;
-            font-weight: bold;
-        }
-        @media (max-width: 575.98px){  /* XS */
-            position: absolute;
-            left: 0px;
-            bottom: 28px;
-            font-weight: bold;
         }
     }
 }
 
 /* 區域卷軸(不顯示) */
 .collections-scroll {
-    @media (min-width: 576px){  /* XXL XL LG MD SM */
-        width: 100%;
-        height: 400px;
-    }
-    @media (max-width: 575.98px){  /* XS 區域卷軸(超出即顯示) */
-        width: 100%;
-		height: 400px;
+    width: 100%;
+    height: 400px;
+    @media (max-width: $sm){  /* 區域卷軸(超出即顯示) */
 		overflow-x: auto;
 		overflow-y: hidden;
     }
     > .collections-area {  /* 左側最大作品區塊 */
         > .collections {
-            @media (min-width: 576px){  /* XXL XL LG MD SM */
-                position: relative;
-                height: 100%;
+            position: relative;
+            height: 100%;
+            margin-right: 30px;
+            float: left;
+            width: 350px;
+            @media (min-width: $sm){
                 width: 50%;
-                margin-right: 30px;
-                float: left;
-            }
-            @media (max-width: 575.98px){  /* XS */
-                position: relative;
-                height: 100%;
-                width: 350px;
-                margin-right: 30px;
-                float: left;
             }
        }
    }
@@ -357,59 +281,49 @@ a.link-border {
 
 /* 卷軸樣式-底 */
 .collections-scroll::-webkit-scrollbar {
-    @media (max-width: 575.98px){  /* XS */
+    @media (max-width: $sm){
         width: 5px;
         height: 10px;
-        background-color: var(--webkit-scrollbar-color);
+        background-color: $webkitScrollbarColor;
     }
 }
 
 /* 卷軸樣式-軸 */
 .collections-scroll::-webkit-scrollbar-thumb {
-    @media (max-width: 575.98px){  /* XS */
-        background: var(--webkit-scrollbar-thumb-color);
+    @media (max-width: $sm){
+        background: $webkitScrollbarThumbColor;
     }
 }
 
 /* 作品區塊 */
 .collections-area {
-    @media (min-width: 576px){  /* XXL XL LG MD SM */
+    height: 400px;
+    width: 1170px;
+    @media (min-width: $sm){
         height: 100%;
         width: 100%;
-    }
-    @media (max-width: 575.98px){  /* XS */
-        height: 400px;
-		width: 1170px;
     }
 }
 
 /* 上下排列包覆容器 */
 .vertical-wrapper {
-    @media (min-width: 576px){  /* XXL XL LG MD SM */
-        height: 100%;
+    height: 100%;
+    width: auto;
+    float: left;
+    @media (min-width: $sm){
         width: calc(50% - 30px);
-        float: left;
-    }
-    @media (max-width: 575.98px){  /* XS */
-        height: 100%;
-		width: auto;
-		float: left;
     }
     > .collections {  /* 作品區塊高度 */
-        @media (min-width: 576px){  /* XXL XL LG MD SM */
-            height: calc(50% - 15px);
-        }
-        @media (max-width: 575.98px){  /* XS */
+        height: calc(50% - 15px);
+        @media (max-width: $sm){
             height: 100%;
             width: 380px;
             float: left;
         }
     }
     > .collections:first-child {  /* 第一個上下排列項目下外距 */
-        @media (min-width: 576px){  /* XXL XL LG MD SM */
-            margin-bottom: 30px;
-        }
-        @media (max-width: 575.98px){  /* XS */
+        margin-bottom: 30px;
+        @media (max-width: $sm){
             margin-bottom: 0px;
 		    margin-right: 30px;
         }
@@ -426,30 +340,24 @@ a.link-border {
         margin-bottom: 3rem;
     }
     ul {  /* 選單 */
-        @media (min-width: 992px){  /* MD以上 */
-            list-style: none;
-            padding-left: 0px;
-            width: auto;
-            float: left;
+        list-style: none;
+        padding-left: 0px;
+        width: auto;
+        float: left;
+        margin-right: 100px;
+        @media (min-width: $lg){
             margin-right: 200px;
         }
-        @media (max-width: 991.98px) {  /* MD以下 */
-            list-style: none;
-            padding-left: 0px;
-            width: auto;
-            float: left;
-            margin-right: 100px;
-        }
-        li {  /* 選單項目 */
+        li {
             margin: 10px 0px;
         }
-        li:first-child {  /* 選單標題 */
+        li:first-child {
             h3 {
                 margin-top: 0px;
             }
         } 
 	}
-    ul:last-child {  /* 取消最後一個ul右外距 */
+    ul:last-child {
         margin-right: 0px;
     }
 }
@@ -466,20 +374,16 @@ a.link-border {
 
 /* 電腦版頁尾 */
 .footer-pc {
-    @media (min-width: 576px) {  /* XS以上 */
+    display: none;
+    @media (min-width: $sm) {
         display: block;
-    }
-    @media (max-width: 575.98px) {  /* XS */
-        display: none;
     }
 }
 
 /* 手機版頁尾 */
 .footer-mobile {
-    @media (min-width: 576px) {  /* XS以上 */
+    display: block;
+    @media (min-width: $sm) {
         display: none;
-    }
-    @media (max-width: 575.98px) {  /* XS */
-        display: block;
     }
 }
