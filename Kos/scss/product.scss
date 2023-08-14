@@ -13,161 +13,95 @@ body {
 
 /* 商品圖片區塊 */
 .product-img {
-    @media (min-width: 1400px) {  /* XL以上 */
+    width: 100%;
+    height: 50vh;
+    @media (min-width: $xl) {
         width: 58%;
         height: 100%;
         float: left;
     }
-    @media (max-width: 1399.98px) {  /* LG以下 */
+    @media (min-width: $lg) {
         width: 45%;
         height: 100%;
         float: left;
     }
-    @media (max-width: 991.98px) {  /* MD以下 */
-        width: 100%;
-        height: 50vh;
-    }
     img {  /* 商品圖片 */
-        @media (min-width: 1400px) {  /* XL以上 */
-            object-fit: cover;
-            width: 100%;
-            height: 100%;
-        }
-        @media (max-width: 1399.98px) {  /* LG以下 */
-            object-fit: cover;
-            width: 100%;
-            height: 100%;
-        }
-        @media (max-width: 991.98px) {  /* MD以下 */
-            object-fit: cover;
-            width: 100%;
-            height: 100%;
-        }
+        object-fit: cover;
+        width: 100%;
+        height: 100%;
     }
 }
 
 /* 商品介紹 */
 .product-intro {
-    @media (min-width: 1400px) {  /* XL以上 */
+    width: 100%;
+    height: 50vh;
+    box-sizing: border-box;
+    padding: 30px 5% 30px 5%;
+    @media (min-width: $xl) {
         width: 42%;
         height: 100%;
-        box-sizing: border-box;
         padding: 120px 5% 120px 5%;
         float: left;
     }
-    @media (max-width: 1399.98px) {  /* LG以下 */
+    @media (min-width: $lg) {
         width: 55%;
         height: 100%;
-        box-sizing: border-box;
         padding: 120px 5% 120px 5%;
         float: left;
-    }
-    @media (max-width: 991.98px) {  /* MD以下 */
-        width: 100%;
-        height: 50vh;
-        box-sizing: border-box;
-        padding: 30px 5% 30px 5%;
     }
 }
 
 /* 購買商品區塊 */
 .product-buy {
-    @media (min-width: 1400px) {  /* XL以上 */
+    @include fixedPosition(bottom, 50px, right, 0px);
+    width: 100%;
+    height: 50px;
+    padding: 0px 5%;
+    box-sizing: border-box;
+    @media (min-width: $xl) {
         width: 42%;
-        height: 50px;
-        position: fixed;
-        bottom: 50px;
-        right: 0px;
-        padding: 0px 5%;
-        box-sizing: border-box;
     }
-    @media (max-width: 1399.98px) {  /* LG以下 */
+    @media (min-width: $lg) {
         width: 55%;
-        height: 50px;
-        position: fixed;
-        bottom: 50px;
-        right: 0px;
-        padding: 0px 5%;
-        box-sizing: border-box;
-    }
-    @media (max-width: 991.98px) {  /* MD以下 */
-        width: 100%;
-        height: 50px;
-        position: fixed;
-        bottom: 50px;
-        right: 0px;
-        padding: 0px 5%;
-        box-sizing: border-box;
     }
 }
 
 /* 返回按鈕 */
 .back-button {
-    @media (min-width: 1400px) {  /* XL以上 */
-        display: flex;
-        justify-content: start;
-        align-items: center;
-    }
-    @media (max-width: 1399.98px) {  /* LG以下 */
-        display: flex;
-        justify-content: start;
-        align-items: center;
-    }
-    @media (max-width: 991.98px) {  /* MD以下 */
-        display: flex;
-        justify-content: start;
-        align-items: center;
-        position: fixed;
-        top: 15px;
-        left: 15px;
-        font-weight: bold;
-        z-index: 15;
-    }
-    img {  /* 返回圖示 */
-        @media (min-width: 1400px) {  /* XL以上 */
-            width: 20px;
-            height: 20px;
-            margin-right: 15px;
-        }
-        @media (max-width: 1399.98px) {  /* LG以下 */
-            width: 20px;
-            height: 20px;
-            margin-right: 15px;
-        }
-        @media (max-width: 991.98px) {  /* MD以下 */
-            width: 20px;
-            height: 20px;
-            margin-right: 15px;
-        }
+    @include flex(start, center);
+    @include fixedPosition(top, 15px, left, 15px);
+    font-weight: bold;
+    z-index: 15;
+    img {
+        width: 20px;
+        height: 20px;
+        margin-right: 15px;
     }
 }
 
 /* 標題LOGO */
 .topbar-logo > a {
-    @media (max-width: 991.98px) {  /* MD以下 */
+    @media (max-width: $lg) {
         display: none;
     }
 }
 
 /* 手機版漢堡選單按鈕 */
 .mobile-bars {
-    @media (max-width: 991.98px) {  /* MD以下 */
+    @media (max-width: $lg) {
         display: none;
     }
 }
 
 /* 商品標題區塊 */
 .product-title {
-    margin-top: 100px;
+    margin-top: 0px;
     width: 100%;
-    height: 90px;
+    height: 60px;
     border-bottom: 4px solid #000;
-    @media (min-width: 992px) {  /* MD以上 */
+    @media (min-width: 992px) {
         margin-top: 100px;
-    }
-    @media (max-width: 991.98px) {  /* MD以下 */
-        margin-top: 0px;
-        height: 60px;
     }
 }
 
@@ -176,10 +110,8 @@ body {
     font-size: 2.2rem;
     float: left;
     font-weight: bold;
-    @media (max-width: 991.98px) {  /* MD以下 */
+    @media (max-width: $lg) {
         font-size: 1.6rem;
-        float: left;
-        font-weight: bold;
     }
 }
 
@@ -188,29 +120,22 @@ body {
     font-size: 1.8rem;
     float: right;
     margin-top: 5px;
-    @media (max-width: 991.98px) {  /* MD以下 */
+    @media (max-width: $lg) {
         font-size: 1.5rem;
-        float: right;
-        margin-top: 5px;
     }
 }
 
 /* 商品內容 */
 .product-content {
     width: 100%;
-    height: calc(100vh - 460px);
-    @media (min-width: 992px) {  /* MD以上 */
+    height: calc(55vh - 220px);
+    @media (min-width: $lg) {
         width: 100%;
         height: calc(100vh - 460px);
     }
-    @media (max-width: 991.98px) {  /* MD以下 */
-        width: 100%;
-        height: calc(55vh - 220px);
-    }
     ul.product-tab {  /* 商品頁籤 */
+        @include flex(space-between);
         padding-left: 0px;
-        display: flex; 
-        justify-content: space-between;
         li {
             margin: 20px 35px 20px 0px;
             text-align: left;
@@ -227,23 +152,21 @@ body {
         overflow: auto;
         width: 100%;
         height: calc(100% - 100px);
-        @media (max-width: 991.98px) {  /* MD以下 */
+        @media (max-width: $lg) {
             display: none !important;
         }
     }
     .tab-content-mobile {  /* 手機板商品介紹區塊 */
-        @media (min-width: 992px) {  /* MD以上 */
+        padding-top: 20px;
+        display: block;
+        @media (min-width: 992px) {
             display: none;
         }
-        @media (max-width: 991.98px) {  /* MD以下 */
-            padding-top: 20px;
-            display: block;
-        }
     }
-    .tab-content.active {  /* 顯示內容 active */
+    .tab-content.active {
         display: block;
     }
-    .tab-content.disabled {  /* 顯示內容 disabled */
+    .tab-content.disabled {
         display: none;
     }
 }
@@ -252,7 +175,7 @@ body {
 .product-detail {
     width: 100%;
     height: 80px;
-    @media (max-width: 991.98px) {  /* MD以下 */
+    @media (max-width: $lg) {
         display: none;
     }
 }
@@ -274,30 +197,22 @@ body {
     float: right;
     text-align: right;
     white-space: nowrap;
+    font-weight: bold;
+    font-size: 1.3rem;
+    border-bottom: 4px solid #000;
+    padding: 10px 0px;
     a {  /* 加入購物車按鈕 */
-        @media (min-width: 992px) {  /* MD以上 */
+        @media (min-width: $lg) {
             font-weight: bold;
             font-size: 1.5rem;
-            border-bottom: 4px solid #000;
-            padding: 10px 0px;
-        }
-        @media (max-width: 991.98px) {  /* MD以下 */
-            font-weight: bold;
-            font-size: 1.3rem;
             border-bottom: 4px solid #000;
             padding: 10px 0px;
         }
     }
 }
 
-/* 新增icon圖示 */
-.plus-icon {
-    width: 30px;
-    height: 30px;
-}
-
-/* 減少icon圖示 */
-.minus-icon {
+/* 新增/減少icon圖示 */
+.plus-icon, .minus-icon {
     width: 30px;
     height: 30px;
 }
@@ -319,83 +234,57 @@ body {
     display: none;
 }
 
-/* 加入購物車提示底色 */
-.hint-bg {
+/* 加入購物車提示底色 繼承 */
+%hintBg {
+    @include fixedPosition(top, 0px, left, 0px);
     background-color: rgba(0, 0, 0, 0.5);
-    position: fixed;
-    top: 0px;
-    left: 0px;
     width: 100vw;
     height: 100vh;
     z-index: 20;
+}
+
+/* 加入購物車提示底色 */
+.hint-bg {
+    @extend %hintBg;
     animation: .2s ease 0s normal forwards 1 fadeout;
 }
 
 /* 加入購物車提示底色.active */
 .hint-bg.active {
-    background-color: rgba(0, 0, 0, 0.5);
-    position: fixed;
-    top: 0px;
-    left: 0px;
-    width: 100vw;
-    height: 100vh;
-    z-index: 20;
+    @extend %hintBg;
     animation: .2s ease 0s normal forwards 1 fadein;
+}
+
+/* 購物車提示 繼承 */
+%cartHint {
+    background-color: #F2F2F2;
+    min-height: 250px;
+    z-index: 25;
+    padding: 20px;
+    box-sizing: border-box;
 }
 
 /* 購物車提示 */
 .cart-hint {
-    @media (min-width: 992px) {  /* MD以上 */
-        background-color: #F2F2F2;
-        position: fixed;
-        top: -255px;
-        left: calc((100vw - 500px) / 2);
+    @include fixedPosition(top, -255px, left, 0px);
+    @extend %cartHint;
+    width: 100%;
+    animation: .2.5s ease-in-out 0s normal forwards 1 hidehint;
+    @media (min-width: $lg) {
+        @include fixedPosition(top, -255px, left, calc((100vw - 500px) / 2));
         width: 500px;
-        min-height: 250px;
-        z-index: 25;
-        padding: 20px;
-        box-sizing: border-box;
-        animation: .2s ease-in-out 0s normal forwards 1 hidehint;
-    }
-    @media (max-width: 991.98px) {  /* MD以下 */
-        background-color: #F2F2F2;
-        position: fixed;
-        top: -255px;
-        left: 0px;
-        width: 100%;
-        min-height: 250px;
-        z-index: 25;
-        padding: 20px;
-        box-sizing: border-box;
-        animation: .3s ease-in-out 0s normal forwards 1 hidehint;
     }
 }
 
 /* 購物車提示.active */
 .cart-hint.active {
-    @media (min-width: 992px) {  /* MD以上 */
-        background-color: #F2F2F2;
-        position: fixed;
-        top: 0px;
-        left: calc((100vw - 500px) / 2);
+    @include fixedPosition(top, 0px, left, 0px);
+    @extend %cartHint;
+    width: 100%;
+    animation: .2.5s ease-in 0s normal forwards 1 showhint;
+    @media (min-width: $lg) {
+        @include fixedPosition(top, -255px, left, calc((100vw - 500px) / 2));
         width: 500px;
-        min-height: 250px;
-        z-index: 25;
-        padding: 20px;
-        box-sizing: border-box;
-        animation: .2s ease-in 0s normal forwards 1 showhint;
-    }
-    @media (max-width: 991.98px) {  /* MD以下 */
-        background-color: #F2F2F2;
-        position: fixed;
-        top: 0px;
-        left: 0px;
-        width: 100%;
-        min-height: 250px;
-        z-index: 25;
-        padding: 20px;
-        box-sizing: border-box;
-        animation: .3s ease-in 0s normal forwards 1 showhint;
     }
 }
 
@@ -445,10 +334,10 @@ body {
     width: calc(100% - 80px);
     padding: 0px 0px 0px 20px;
     box-sizing: border-box;
-    .item-name {  /* 商品名稱 */
+    .item-name {
         font-weight: bold;
     }
-    .item-price {  /* 商品價格 */
+    .item-price {
         margin-top: 5px;
     }
 }
