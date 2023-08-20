@@ -8,26 +8,28 @@
 
 /* 首頁跑馬燈 */
 .slider {
-    @include flex(center);
+    display: flex;
+    justify-content: center;
 	height: 100vh;
 	width: 100%;
 	background-color: #d2ccc6;
 	z-index: 1;
     .wrapper {
-        @include flex(center, start);
-        @include sliderImg(auto 70vh, right -40px bottom);
-        width: 100%;
-        height: 100%;
         background-image: url('../asset/flower-01.png');
         background-repeat: no-repeat;
-        @media (min-width: $lg) {
+        @media (min-width: $md) {
+            @include flex(center, center);
             @include sliderImg(auto 85vh, right 15% bottom);
         }
-        @media (min-width: $md) {
+        @media (min-width: $sm) and (max-width: $md) {
+            @include flex(center, center);
             @include sliderImg(auto 85vh, right 20px bottom 0px);
         }
-        @media (min-width: $sm) {
-            @include flex(center, center);
+        @media (max-width: $sm) {
+            @include flex(center, flex-start);
+            @include sliderImg(auto 70vh, right -40px bottom);
+            width: 100%;
+            height: 100%;
         }
     }
     .slider-title {
@@ -60,7 +62,9 @@
 
 /* 網頁內容 */
 .content {
-    @include flex(center);
+    // @include flex(center);
+    display: flex;
+    justify-content: center;
 	width: 100%;
     .areas {
         margin: 8rem 0rem;
@@ -171,10 +175,10 @@
     @media (min-width: $xxxl) {
         width: 55%;
     }
-    @media (min-width: $xl){
+    @media (min-width: $xl) and (max-width: $xxxl) {
         width: 50%;
     }
-    @media (min-width: $md) {
+    @media (min-width: $md) and (max-width: $xl) {
         width: 55%;
     }
     img {  /* 品牌故事圖片 */
@@ -186,7 +190,7 @@
             height: 450px;
             object-position: left center;
         }
-        @media (min-width: $xl){
+        @media (min-width: $xl) and (max-width: $xxxl) {
             height: 350px;
             object-position: left bottom;
         }
@@ -204,7 +208,7 @@
 
 /* 品牌故事描述 */
 .story-description {
-    @include flex(start, center);
+    @include flex(flex-start, center);
 	height: 100%;
 	float: left;
 	padding-left: 60px;
@@ -212,7 +216,7 @@
         width: calc(45% - 80px);
 		padding-left: 80px;
     }
-    @media (min-width: $xl){
+    @media (min-width: $xl) and (max-width: $xxxl) {
         width: calc(50% - 80px);
 		padding-left: 80px;
     }
@@ -236,13 +240,13 @@ a.link-border {
 /* 作品區塊 */
 .collections {
 	position: relative;
-    object-fit: cover;
-    object-position: center center;
-    width: 100%;
-    height: 330px;
     img {  /* 作品圖片 */
-        @media (min-width: $sm){
-            height: 100%;
+        object-fit: cover;
+        object-position: center center;
+        width: 100%;
+        height: 100%;
+        @media (max-width: $sm){
+            height: 330px;
         }
     }
     span {  /* 作品類型名稱 */
@@ -262,8 +266,8 @@ a.link-border {
     width: 100%;
     height: 400px;
     @media (max-width: $sm){  /* 區域卷軸(超出即顯示) */
-		overflow-x: auto;
-		overflow-y: hidden;
+        overflow-x: auto;
+        overflow-y: hidden;
     }
     > .collections-area {  /* 左側最大作品區塊 */
         > .collections {

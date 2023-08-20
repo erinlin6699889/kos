@@ -13,17 +13,19 @@ body {
 
 /* 商品圖片區塊 */
 .product-img {
-    width: 100%;
-    height: 50vh;
     @media (min-width: $xl) {
         width: 58%;
         height: 100%;
         float: left;
     }
-    @media (min-width: $lg) {
+    @media (min-width: $lg) and (max-width: $xl) {
         width: 45%;
         height: 100%;
         float: left;
+    }
+    @media (max-width: $lg) {
+        width: 100%;
+        height: 50vh;
     }
     img {  /* 商品圖片 */
         object-fit: cover;
@@ -34,45 +36,51 @@ body {
 
 /* 商品介紹 */
 .product-intro {
-    width: 100%;
-    height: 50vh;
     box-sizing: border-box;
-    padding: 30px 5% 30px 5%;
     @media (min-width: $xl) {
         width: 42%;
         height: 100%;
         padding: 120px 5% 120px 5%;
         float: left;
     }
-    @media (min-width: $lg) {
+    @media (min-width: $lg) and (max-width: $xl) {
         width: 55%;
         height: 100%;
         padding: 120px 5% 120px 5%;
         float: left;
+    }
+    @media (max-width: $lg) {
+        width: 100%;
+        height: 50vh;
+        padding: 30px 5% 30px 5%;
     }
 }
 
 /* 購買商品區塊 */
 .product-buy {
     @include fixedPosition(bottom, 50px, right, 0px);
-    width: 100%;
     height: 50px;
     padding: 0px 5%;
     box-sizing: border-box;
     @media (min-width: $xl) {
         width: 42%;
     }
-    @media (min-width: $lg) {
+    @media (min-width: $lg) and (max-width: $xl) {
         width: 55%;
+    }
+    @media (max-width: $lg) {
+        width: 100%;
     }
 }
 
 /* 返回按鈕 */
 .back-button {
-    @include flex(start, center);
-    @include fixedPosition(top, 15px, left, 15px);
-    font-weight: bold;
-    z-index: 15;
+    @include flex(flex-start, center);
+    @media (max-width: $lg) {
+        @include fixedPosition(top, 15px, left, 15px);
+        font-weight: bold;
+        z-index: 15;
+    }
     img {
         width: 20px;
         height: 20px;
@@ -134,7 +142,9 @@ body {
         height: calc(100vh - 460px);
     }
     ul.product-tab {  /* 商品頁籤 */
-        @include flex(space-between);
+        // @include flex(space-between);
+        display: flex;
+        justify-content: space-between;
         padding-left: 0px;
         li {
             margin: 20px 35px 20px 0px;
@@ -193,7 +203,7 @@ body {
 
 /* 加入購物車區塊 */
 .cart-add {
-    width: 50%;
+    // width: 50%;
     float: right;
     text-align: right;
     white-space: nowrap;
@@ -202,6 +212,7 @@ body {
     border-bottom: 4px solid #000;
     padding: 10px 0px;
     a {  /* 加入購物車按鈕 */
+        text-decoration: none;
         @media (min-width: $lg) {
             font-weight: bold;
             font-size: 1.5rem;
@@ -246,13 +257,13 @@ body {
 /* 加入購物車提示底色 */
 .hint-bg {
     @extend %hintBg;
-    animation: .2s ease 0s normal forwards 1 fadeout;
+    @include animation('.2s ease 0s normal forwards 1 fadeout');
 }
 
 /* 加入購物車提示底色.active */
 .hint-bg.active {
     @extend %hintBg;
-    animation: .2s ease 0s normal forwards 1 fadein;
+    @include animation('.2s ease 0s normal forwards 1 fadein');
 }
 
 /* 購物車提示 繼承 */
@@ -267,9 +278,9 @@ body {
 /* 購物車提示 */
 .cart-hint {
     @include fixedPosition(top, -255px, left, 0px);
+    @include animation('.3s ease-in-out 0s normal forwards 1 hidehint');
     @extend %cartHint;
     width: 100%;
-    animation: .2.5s ease-in-out 0s normal forwards 1 hidehint;
     @media (min-width: $lg) {
         @include fixedPosition(top, -255px, left, calc((100vw - 500px) / 2));
         width: 500px;
@@ -279,11 +290,11 @@ body {
 /* 購物車提示.active */
 .cart-hint.active {
     @include fixedPosition(top, 0px, left, 0px);
+    @include animation('.3s ease-in 0s normal forwards 1 showhint');
     @extend %cartHint;
     width: 100%;
-    animation: .2.5s ease-in 0s normal forwards 1 showhint;
     @media (min-width: $lg) {
-        @include fixedPosition(top, -255px, left, calc((100vw - 500px) / 2));
+        @include fixedPosition(top, 0px, left, calc((100vw - 500px) / 2));
         width: 500px;
     }
 }
@@ -352,28 +363,4 @@ body {
         border-bottom: 3px solid #000;
         padding: 0px 0px 15px 0px;
     }
-}
-
-/* 購物車提示出現 */
-@keyframes showhint{
-    0% { top: -255px; }
-    100% { top: 0px; }
-}
-
-/* 購物車提示出現 */
-@-webkit-keyframes showhint{
-    0% { top: -255px; }
-    100% { top: 0px; }
-}
-
-/* 購物車提示消失 */
-@keyframes hidehint{
-    0% { top: 0px; }
-    100% { top: -255px; }
-}
-
-/* 購物車提示消失 */
-@-webkit-keyframes hidehint{
-    0% { top: 0px; }
-    100% { top: -255px; }
 }
