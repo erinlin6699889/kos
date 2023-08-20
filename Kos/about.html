@@ -5,18 +5,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Kos</title>
     <!-- CSS -->
-	<!-- <link rel="stylesheet" type="text/css" href="old/common.css">
-	<link rel="stylesheet" type="text/css" href="old/shop.css"> -->
-    <link rel="stylesheet" type="text/css" href="css/shop.css">
+    <link rel="stylesheet" type="text/css" href="css/page.css">
 </head>
 <body>
 
-    <!-- 上方工具列 -->
+	<!-- 上方工具列 -->
 	<div id="topbar" class="topbar">
 		<div class="wrapper">
 			<!-- PC 選單項目 -->
 			<ul class="topbar-left">
-				<li><a href="shop.html" class="active">shop</a></li>
+				<li><a href="shop.html">shop</a></li>
 				<li><a href="about.html">about</a></li>
 				<li><a href="#">contact</a></li>
 			</ul>
@@ -74,115 +72,46 @@
 
 	<!-- 內容區塊 -->
 	<div id="content" class="content">
-
 		<div class="wrapper">
+			
+            <!-- 標題介紹區塊 -->
+            <div class="title-area">
+                <div class="about-title-area">
+                    <span class="about-title">
+                        about
+                    </span>
+                </div>
+                <div class="about-intro-area">
+                    This project is an e-commerce design concept of a ceramics shop. kos is focused on simple and modern ceramics, that are inspired by nature's unique shapes and tones.
+                </div>
+            </div>
 
-			<!-- 商店標題 -->
-			<div class="shop-title">
-				<h3>planters & vases</h3>
-			</div>
+            <!-- 內容介紹區塊 -->
 
-			<!-- 商品區塊 -->
-			<div class="shop-wrapper">
+            <div class="content-area">
+                <div class="content-photo-area">
+                    <img src="asset/about1.png" />
+                    <img src="asset/about2.png" />
+                </div>
 
-				<!-- 商品種類選單 -->
-				<div class="shop-menu">
-					<ul class="shop-list">
-						<li><a href="shop.html">new in</a></li>
-						<li><a href="shop.html">tableware</a></li>
-						<li class="has-sub">
-							<a href="shop.html" class="active">planters & vases</a>
-							<ul>
-								<li><a href="shop.html">planters</a></li>
-								<li><a href="shop.html">vases</a></li>
-							</ul>
-						</li>
-						<li><a href="shop.html">decorative</a></li>
-					</ul>
-				</div>
+                <div class="content-goals-area">
+                    <div class="goals-title">main goals</div>
+                    <ul class="goals-list">
+                        <li>
+                            Design a responsive online store that helps people to purchases items that might otherwise be hard to find in physical stores.
+                        </li>
+                        <li>
+                            Solve the frustration of complex and unintutive navigation systems.
+                        </li>
+                        <li>
+                            Build a cohesive brand that communicates through the visual design.
+                        </li>
+                    </ul>
+                </div>
+            </div>
 
-				<!-- 商品陳列區塊 -->
-				<div class="shop-content">
-					<!-- 商品排序 -->
-					<div class="product-toolbar">
-						<div class="product-all"><a href="#">all</a></div>
-						<div class="product-sort"><a href="#">sort by</a></div>
-					</div>
-
-					<!-- 商品陳列 -->
-					<div class="product-area">
-						
-						<!-- 商品項目 -->
-						<div class="product-item">
-							<a href="product.html">
-								<img src="asset/shop-01.png" />
-								<div class="product-title">
-									<span class="product-name">noe vase</span>
-									<span class="product-price">$ 95</span>
-								</div>
-							</a>
-						</div>
-
-						<!-- 商品項目 -->
-						<div class="product-item">
-							<a href="product.html">
-								<img src="asset/shop-02.png" />
-								<div class="product-title">
-									<span class="product-name">noe vase</span>
-									<span class="product-price">$ 95</span>
-								</div>
-							</a>
-						</div>
-
-						<!-- 商品項目 -->
-						<div class="product-item">
-							<a href="product.html">
-								<img src="asset/shop-03.png" />
-								<div class="product-title">
-									<span class="product-name">noe vase</span>
-									<span class="product-price">$ 95</span>
-								</div>
-							</a>
-						</div>
-
-						<!-- 商品項目 -->
-						<div class="product-item">
-							<a href="product.html">
-								<img src="asset/shop-01.png" />
-								<div class="product-title">
-									<span class="product-name">noe vase</span>
-									<span class="product-price">$ 95</span>
-								</div>
-							</a>
-						</div>
-
-						<!-- 商品項目 -->
-						<div class="product-item">
-							<a href="product.html">
-								<img src="asset/shop-02.png" />
-								<div class="product-title">
-									<span class="product-name">noe vase</span>
-									<span class="product-price">$ 95</span>
-								</div>
-							</a>
-						</div>
-
-						<!-- 商品項目 -->
-						<div class="product-item">
-							<a href="product.html">
-								<img src="asset/shop-03.png" />
-								<div class="product-title">
-									<span class="product-name">noe vase</span>
-									<span class="product-price">$ 95</span>
-								</div>
-							</a>
-						</div>
-						
-					</div>
-
-				</div>
-			</div>
 		</div>
+
 	</div>
 
 	<!-- 購物車 -->
@@ -239,6 +168,6 @@
 	<!-- JS -->
 	<script type="text/javascript" src="plugins/jquery-3.7.0.min.js"></script>
 	<script type="text/javascript" src="js/common.js"></script>
-	<script type="text/javascript" src="js/shop.js"></script>
+	<script type="text/javascript" src="js/about.js"></script>
 </body>
 </html>
