@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Kos</title>
+    <!-- CSS -->
+    <link rel="stylesheet" type="text/css" href="plugins/fontawesome/css/all.min.css">
+    <link rel="stylesheet" type="text/css" href="css/page.css">
+</head>
+<body>
+
+	<!-- 上方工具列 -->
+	<div id="topbar" class="topbar">
+		<div class="wrapper">
+			<!-- PC 選單項目 -->
+			<ul class="topbar-left">
+				<li><a href="shop.html">shop</a></li>
+				<li><a href="about.html">about</a></li>
+				<li><a href="contact.html">contact</a></li>
+			</ul>
+			<div class="topbar-logo">
+				<a href="index.html"><img src="asset/logo.png" /></a>
+			</div>
+			<ul class="topbar-right">
+				<li><a href="account.html">account</a></li>
+				<li><a class="active" href="search.html">search</a></li>
+				<li><a href="javascript:void(0)" onclick="ShowCartDetail()">bag (<span id="pc-cart">0</span>)</a></li>
+			</ul>
+			<!-- Mobile 選單項目 -->
+			<a href="javascript:void(0)" class="mobile-bars" onclick="ShowBurgerMenu()">
+				<img src="asset/bars.png" />
+			</a>
+			<a href="javascript:void(0)" class="mobile-bag" onclick="ShowCartDetail()">
+				<img src="asset/bag.png" />
+				<span class="badge-cart">(<span id="mobile-cart">0</span>)</span>
+			</a>
+		</div>
+	</div>
+
+	<!-- 漢堡選單 -->
+	<div id="menu" class="burger-menu">
+		<div class="menu-wrapper">
+			<!-- 關閉按鈕 -->
+			<div class="menu-times">
+				<a href="javascript:void(0)" onclick="HideBurgerMenu()"><img src="asset/times.png" /></a>
+			</div>
+			<!-- 搜尋列 -->
+			<input class="menu-search" type="text" placeholder="search" />
+			<!-- 手機版選單 -->
+			<ul>
+				<li>
+					<a href="index.html">Home</a>
+				</li>
+				<li class="has-sub">
+					<a href="shop.html">shop</a>
+				</li>
+				<li>
+					<a href="account.html">account</a>
+				</li>
+				<li>
+					<a href="about.html">about</a>
+				</li>
+				<li class="has-sub">
+					<a href="contact.html">contact</a>
+				</li>
+				<li class="has-sub">
+					<a href="#">help</a>
+				</li>
+			</ul>
+		</div>
+	</div>
+
+    <!-- 標題區塊 -->
+    <div class="page-title">
+        <h3>Search</h3>
+    </div>
+
+	<!-- 內容區塊 -->
+	<div id="content" class="content page-content">
+		<div class="page-wrapper">
+			<!-- 搜尋列 -->
+            <div class="input-group">
+                <input class="form-input search" type="text" placeholder="Search here..." />
+                <i class="form-search-icon fa-solid fa-magnifying-glass fa-xl"></i>
+            </div>
+		</div>
+
+	</div>
+
+	<!-- 購物車 -->
+	<div id="cart-panel" class="content">
+		<!-- 標題文字 -->
+		<div class="cart-head">
+			<!-- 關閉按鈕 -->
+			<div class="cart-times">
+				<a href="javascript:void(0)" onclick="HideCartDetail()"><img src="asset/times.png" /></a>
+			</div>
+
+			<!-- 標題 -->
+			<div class="cart-title">
+				bag
+			</div>
+		</div>
+
+		<!-- 購物車 -->
+		<div class="cart-body">
+			<!-- 無商品 -->
+			<div id="cart-no-item">
+				no item
+			</div>
+
+			<!-- 商品列表 -->
+			<div id="cart-item-list" style="display: none;">
+				<!-- 表格區域 (超出要顯示卷軸) -->
+				<div class="cart-content-table">
+					<table class="cart-table">
+						<tbody>
+							
+						</tbody>
+					</table>
+				</div>
+				
+				<!-- 總價格顯示 -->
+				<div class="cart-content-total">
+					<!-- 商品總數 -->
+					<span class="total-count">total (<span id="total-count">2</span> items)</span>
+
+					<!-- 商品總價格 -->
+					<span class="total-price">$ <span id="total-price">175</span></span>
+				</div>
+			</div>
+		</div>
+
+		<!-- 結帳 -->
+		<div class="cart-footer">
+			<a id="checkout-btn" href="#" style="display: none;">checkout</a>
+		</div>
+
+	</div>
+
+	<!-- JS -->
+	<script type="text/javascript" src="plugins/jquery-3.7.0.min.js"></script>
+	<script type="text/javascript" src="js/common.js"></script>
+	<script type="text/javascript" src="js/page.js"></script>
+</body>
+</html>
