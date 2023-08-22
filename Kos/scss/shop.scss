@@ -72,6 +72,20 @@
         > li {
             > ul {
                 padding-left: 30px;
+                > li:hover {
+                    -webkit-animation: pulse 1s;
+                    animation: pulse 1s;
+                    a:hover {
+                        color: $textColorHover;
+                    }
+                }
+            }
+        }
+        > li:not(.has-sub):hover {
+            -webkit-animation: pulse 1s;
+            animation: pulse 1s;
+            a:hover {
+                color: $textColorHover;
             }
         }
     }

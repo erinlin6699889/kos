@@ -51,10 +51,13 @@ $webkitScrollbarThumbColor: #000;  // 卷軸拖條顏色
     }
 }
 
+* {
+    font-family: "Noto Sans CJK TC", "Microsoft JhengHei", "PingFang", "STHeiti", sans-serif, serif;
+}
+
 /* BODY  */
 body {
 	background-color: $backgroundColor;
-	font-family: "Noto Sans CJK TC", "Microsoft JhengHei", "PingFang", "STHeiti", sans-serif, serif;
 	font-size: 1.3rem;
 	font-weight: 500;
 	margin: 0;
@@ -70,9 +73,10 @@ a {
 	color: $textColor;
 	text-decoration: none;
 	transition: .2s;
-    :hover {
-        color: $textColorHover;
-    }
+}
+
+a:hover {
+    color: $textColorHover;
 }
 
 /* 導覽列顏色 (scrollTop > 60) */
@@ -513,8 +517,12 @@ a {
         border-bottom: 4px solid #000;
         padding: 10px 0px;
     }
+    a:hover {
+        color: $textColor;
+        -webkit-animation: pulse .5s;
+        animation: pulse .5s;
+    }
 }
-
 
 
 @mixin keyframes($animation-name) {

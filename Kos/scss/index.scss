@@ -51,11 +51,18 @@
                 margin-top: 0px;
             }
         }
+        h3:hover {
+            -webkit-animation: pulse 1s;
+            animation: pulse 1s;
+        }
         a {
             text-decoration: none;
             font-weight: bold;
             padding-bottom: 0.6rem;
             border-bottom: 3.5px solid #000;
+        }
+        a:hover {
+            color: $textColor;
         }
     }
 }
@@ -235,6 +242,12 @@ a.link-border {
 	padding-bottom: 0.5rem;
 	border-bottom: 4.5px solid #000;
 	margin-top: 60px;
+}
+
+a.link-border:hover {
+	color: $textColor;
+    -webkit-animation: pulse .5s;
+    animation: pulse .5s;
 }
 
 /* 作品區塊 */

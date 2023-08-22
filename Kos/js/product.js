@@ -157,5 +157,5 @@ function HideCartHint() {
     $('#cart-hint').removeClass('active');
     setTimeout(() => {
         $('#hint-panel').hide();
-    }, 500);
+    }, 250);
 }

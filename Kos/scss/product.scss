@@ -220,6 +220,14 @@ body {
             padding: 10px 0px;
         }
     }
+    a:hover {
+        color: $textColor !important;
+    }
+}
+
+.cart-add:hover {
+    -webkit-animation: pulse .5s;
+    animation: pulse .5s;
 }
 
 /* 新增/減少icon圖示 */
@@ -257,13 +265,17 @@ body {
 /* 加入購物車提示底色 */
 .hint-bg {
     @extend %hintBg;
-    @include animation('.2s ease 0s normal forwards 1 fadeout');
+    // @include animation('.2s ease 0s normal forwards 1 fadeout');
+    -webkit-animation: fadeOut .3s;
+    animation: fadeOut .3s;
 }
 
 /* 加入購物車提示底色.active */
 .hint-bg.active {
     @extend %hintBg;
-    @include animation('.2s ease 0s normal forwards 1 fadein');
+    // @include animation('.2s ease 0s normal forwards 1 fadein');
+    -webkit-animation: fadein .3s;
+    animation: fadein .3s;
 }
 
 /* 購物車提示 繼承 */
@@ -278,7 +290,9 @@ body {
 /* 購物車提示 */
 .cart-hint {
     @include fixedPosition(top, -255px, left, 0px);
-    @include animation('.3s ease-in-out 0s normal forwards 1 hidehint');
+    // @include animation('.3s ease-in-out 0s normal forwards 1 hidehint');
+    -webkit-animation: slideInUp .3s;
+    animation: slideInUp .3s;
     @extend %cartHint;
     width: 100%;
     @media (min-width: $lg) {
@@ -290,7 +304,9 @@ body {
 /* 購物車提示.active */
 .cart-hint.active {
     @include fixedPosition(top, 0px, left, 0px);
-    @include animation('.3s ease-in 0s normal forwards 1 showhint');
+    // @include animation('.3s ease-in 0s normal forwards 1 showhint');
+    -webkit-animation: slideInDown .3s;
+    animation: slideInDown .3s;
     @extend %cartHint;
     width: 100%;
     @media (min-width: $lg) {
@@ -362,5 +378,8 @@ body {
         font-size: 1.2rem;
         border-bottom: 3px solid #000;
         padding: 0px 0px 15px 0px;
+    }
+    a:hover {
+        color: $textColor;
     }
 }
